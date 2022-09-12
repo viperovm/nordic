@@ -1,0 +1,163 @@
+body {
+    overflow: hidden;
+    background-color: #444041;
+}
+
+section {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    width: 1100px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.image {
+    width: 550px;
+    background-position: top center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.text {
+    width: 550px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    justify-content: center;
+}
+
+.mobile_text {
+    display: none;
+}
+
+.title {
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    color: aliceblue;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.contact {
+    width: 100%;
+    display: flex;
+}
+
+.contact:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.contact img {
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+}
+
+.contact a {
+    color: aliceblue;
+    text-decoration: none;
+    display: block;
+}
+
+.contact a:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 1100px) {
+    section {
+        width: 100vw;
+    }
+
+    .wrapper {
+        width: 100vw;
+        position: relative;
+    }
+
+    .image {
+        width: 100vw;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .mobile_text {
+        display: flex;
+        width: 100vw;
+        position: absolute;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text_wrapper {
+        background: rgba(0,0,0,0.7);
+        border-radius: 8px;
+        margin: 0 20px;
+        padding: 20px;
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+}
+
+
+.App {
+    text-align: center;
+}
+
+.App_logo {
+    width: 30%;
+    height: 100%;
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App_logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App_header {
+    background-color: #393431;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App_link {
+    color: #61dafb;
+}
+
+/*@keyframes App-logo-spin {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/

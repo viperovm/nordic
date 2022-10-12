@@ -24,11 +24,11 @@ const HomeFashionThree = () => {
         {/* hero slider */}
         <HeroSliderTen />
         {/* feature icon */}
-        <FeatureIconTwo spaceTopClass="pt-100" spaceBottomClass="pb-60" />
+        {/*<FeatureIconTwo spaceTopClass="pt-100" spaceBottomClass="pb-60" />*/}
         {/* product grid */}
-        <NewProductGrid category="accessories" limit={10} />
+        <NewProductGrid category="accessories" limit={10} spaceTopClass="pt-60" />
         {/* blog featured */}
-        <BlogFeatured spaceBottomClass="pb-55" />
+        {/*<BlogFeatured spaceBottomClass="pb-55" />*/}
       </LayoutOne>
     </Fragment>
   );

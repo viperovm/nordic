@@ -13,7 +13,7 @@ export const getAllGoods = () => async dispatch => {
   try {
     const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/goods/`, config);
 
-    console.log(111)
+    console.log(res)
 
     dispatch({
       type: t.GET_ALL_GOODS_SUCCESS,

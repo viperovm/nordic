@@ -34,6 +34,14 @@ const currencyReducer = (state = initState, action) => {
         currencyName
       };
     }
+    if (currencyName === "РУБ") {
+      return {
+        ...state,
+        currencySymbol: "₽",
+        currencyRate: action.payload.currencyRate,
+        currencyName
+      };
+    }
   }
 
   return state;

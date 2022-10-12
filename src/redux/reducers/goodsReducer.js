@@ -2,6 +2,7 @@ import * as t from '../types'
 
 const initialState = {
   all_goods: [],
+  all_categories: [],
   one_goods: {},
 };
 
@@ -28,6 +29,17 @@ export default function(state= initialState, action) {
       return {
         ...state,
         one_goods: {}
+      }
+
+    case t.GET_ALL_CATEGORIES_SUCCESS:
+      return {
+        ...state,
+        all_categories: payload
+      }
+    case t.GET_ALL_CATEGORIES_FAIL:
+      return {
+        ...state,
+        all_categories: []
       }
     default:
       return state

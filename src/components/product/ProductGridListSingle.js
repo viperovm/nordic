@@ -41,13 +41,13 @@ const ProductGridListSingle = ({
             <Link to={process.env.PUBLIC_URL + "/temp" + "/product/" + product.id}>
               <img
                 className="default-img"
-                src={process.env.PUBLIC_URL + product.image[0]}
+                src={product?.product_gallery?.map(item => item)[0]}
                 alt=""
               />
-              {product.image.length > 1 ? (
+              {product?.product_gallery?.length > 1 ? (
                 <img
                   className="hover-img"
-                  src={process.env.PUBLIC_URL + product.image[1]}
+                  src={product?.product_gallery?.map(item => item)[1]}
                   alt=""
                 />
               ) : (
@@ -144,13 +144,13 @@ const ProductGridListSingle = ({
             <div className="product-price">
               {discountedPrice !== null ? (
                 <Fragment>
-                  <span>{currency.currencySymbol + finalDiscountedPrice}</span>{" "}
+                  <span>₽{product?.price}</span>{" "}
                   <span className="old">
-                    {currency.currencySymbol + finalProductPrice}
+                    ₽{product?.price}
                   </span>
                 </Fragment>
               ) : (
-                <span>{currency.currencySymbol + finalProductPrice} </span>
+                <span>₽{product?.price}</span>
               )}
             </div>
           </div>
@@ -163,10 +163,10 @@ const ProductGridListSingle = ({
                   <Link to={process.env.PUBLIC_URL + "/temp" + "/product/" + product.id}>
                     <img
                       className="default-img img-fluid"
-                      src={process.env.PUBLIC_URL + product.image[0]}
+                      src={product?.product_gallery?.map(item => item)[0]}
                       alt=""
                     />
-                    {product.image.length > 1 ? (
+                    {product?.product_gallery?.length > 1 ? (
                       <img
                         className="hover-img img-fluid"
                         src={process.env.PUBLIC_URL + product.image[1]}
@@ -202,14 +202,14 @@ const ProductGridListSingle = ({
                   {discountedPrice !== null ? (
                     <Fragment>
                       <span>
-                        {currency.currencySymbol + finalDiscountedPrice}
+                        ₽{product?.price}
                       </span>{" "}
                       <span className="old">
-                        {currency.currencySymbol + finalProductPrice}
+                        ₽{product?.price}
                       </span>
                     </Fragment>
                   ) : (
-                    <span>{currency.currencySymbol + finalProductPrice} </span>
+                    <span>₽{product?.price}</span>
                   )}
                 </div>
                 {product.rating && product.rating > 0 ? (

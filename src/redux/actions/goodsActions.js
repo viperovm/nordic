@@ -47,3 +47,27 @@ export const getOneGoods = (id) => async dispatch => {
     })
   }
 }
+
+export const getAllCategories = () => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/categories/`, config);
+
+    console.log(res)
+
+    dispatch({
+      type: t.GET_ALL_CATEGORIES_SUCCESS,
+      payload: res.data
+    })
+  } catch (err) {
+    dispatch({
+      type: t.GET_ALL_CATEGORIES_FAIL
+    })
+  }
+}

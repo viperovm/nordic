@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, {useEffect} from "react";
 import {
   getIndividualCategories,
   getIndividualTags,
@@ -11,12 +11,16 @@ import ShopCategories from "../../components/product/ShopCategories";
 import ShopColor from "../../components/product/ShopColor";
 import ShopSize from "../../components/product/ShopSize";
 import ShopTag from "../../components/product/ShopTag";
+import {getAllCategories} from "../../redux/actions/goodsActions";
+import {connect} from "react-redux";
 
-const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
-  const uniqueCategories = getIndividualCategories(products);
-  const uniqueColors = getIndividualColors(products);
-  const uniqueSizes = getProductsIndividualSizes(products);
-  const uniqueTags = getIndividualTags(products);
+const ShopSidebar = ({ products, getSortParams, sideSpaceClass, categories}) => {
+  // const uniqueCategories = getIndividualCategories(products);
+  // const uniqueColors = getIndividualColors(products);
+  // const uniqueSizes = getProductsIndividualSizes(products);
+  // const uniqueTags = getIndividualTags(products);
+
+  console.log(categories)
 
   return (
     <div className={`sidebar-style ${sideSpaceClass ? sideSpaceClass : ""}`}>
@@ -24,19 +28,19 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
       <ShopSearch />
 
       {/* filter by categories */}
-      <ShopCategories
-        categories={uniqueCategories}
+      {categories && <ShopCategories
+        categories={categories}
         getSortParams={getSortParams}
-      />
+      />}
 
       {/* filter by color */}
-      <ShopColor colors={uniqueColors} getSortParams={getSortParams} />
+      {/*<ShopColor colors={uniqueColors} getSortParams={getSortParams} />*/}
 
-      {/* filter by size */}
-      <ShopSize sizes={uniqueSizes} getSortParams={getSortParams} />
+      {/*/!* filter by size *!/*/}
+      {/*<ShopSize sizes={uniqueSizes} getSortParams={getSortParams} />*/}
 
-      {/* filter by tag */}
-      <ShopTag tags={uniqueTags} getSortParams={getSortParams} />
+      {/*/!* filter by tag *!/*/}
+      {/*<ShopTag tags={uniqueTags} getSortParams={getSortParams} />*/}
     </div>
   );
 };
@@ -44,6 +48,7 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass }) => {
 ShopSidebar.propTypes = {
   getSortParams: PropTypes.func,
   products: PropTypes.array,
+  categories: PropTypes.array,
   sideSpaceClass: PropTypes.string
 };
 

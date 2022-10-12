@@ -10,10 +10,10 @@ import Breadcrumb from '../../wrappers/breadcrumb/Breadcrumb';
 import ShopSidebar from '../../wrappers/product/ShopSidebar';
 import ShopTopbar from '../../wrappers/product/ShopTopbar';
 import ShopProducts from '../../wrappers/product/ShopProducts';
-import {getAllGoods} from "../../redux/actions/goodsActions";
+import {getAllGoods, getAllCategories} from "../../redux/actions/goodsActions";
 
 const ShopGridStandard = ({location, products, all_goods,
-                              one_goods, getAllGoods}) => {
+                              one_goods, getAllGoods, all_categories, getAllCategories}) => {
     const [layout, setLayout] = useState('grid three-column');
     const [sortType, setSortType] = useState('');
     const [sortValue, setSortValue] = useState('');
@@ -29,7 +29,14 @@ const ShopGridStandard = ({location, products, all_goods,
     useEffect(() => {
         console.log(11)
         getAllGoods()
+        getAllCategories()
     }, [])
+
+    useEffect(() => {
+        if(all_categories.length < 1) {
+            getAllCategories()
+        }
+    }, [all_categories])
 
     const pageLimit = 15;
     const {pathname} = location;
@@ -75,7 +82,7 @@ const ShopGridStandard = ({location, products, all_goods,
                         <div className="row">
                             <div className="col-lg-3 order-2 order-lg-1">
                                 {/* shop sidebar */}
-                                {/*<ShopSidebar products={all_goods} getSortParams={getSortParams} sideSpaceClass="mr-30"/>*/}
+                                {/*<ShopSidebar categories={all_categories} products={all_goods} getSortParams={getSortParams} sideSpaceClass="mr-30"/>*/}
                             </div>
                             <div className="col-lg-9 order-1 order-lg-2">
                                 {/* shop topbar default */}
@@ -117,7 +124,8 @@ const mapStateToProps = state => (
       products: state.productData.products,
       all_goods: state.goods.all_goods,
       one_goods: state.goods.one_goods,
+      all_categories: state.goods.all_categories,
   }
 )
 
-export default connect(mapStateToProps, {getAllGoods,})(ShopGridStandard);
+export default connect(mapStateToProps, {getAllGoods, getAllCategories,})(ShopGridStandard);

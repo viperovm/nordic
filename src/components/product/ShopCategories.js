@@ -3,9 +3,10 @@ import React from "react";
 import { setActiveSort } from "../../helpers/product";
 
 const ShopCategories = ({ categories, getSortParams }) => {
+  console.log('categories: ', categories)
   return (
     <div className="sidebar-widget">
-      <h4 className="pro-sidebar-title">Categories </h4>
+      <h4 className="pro-sidebar-title">Категории </h4>
       <div className="sidebar-widget-list mt-30">
         {categories ? (
           <ul>
@@ -17,22 +18,22 @@ const ShopCategories = ({ categories, getSortParams }) => {
                     setActiveSort(e);
                   }}
                 >
-                  <span className="checkmark" /> All Categories
+                  <span className="checkmark" /> Все категории
                 </button>
               </div>
             </li>
-            {categories.map((category, key) => {
+            {categories?.map((category, key) => {
               return (
                 <li key={key}>
                   <div className="sidebar-widget-list-left">
                     <button
                       onClick={e => {
-                        getSortParams("category", category);
+                        getSortParams("category", category.id);
                         setActiveSort(e);
                       }}
                     >
                       {" "}
-                      <span className="checkmark" /> {category}{" "}
+                      <span className="checkmark" /> {category.name}{" "}
                     </button>
                   </div>
                 </li>
@@ -40,7 +41,7 @@ const ShopCategories = ({ categories, getSortParams }) => {
             })}
           </ul>
         ) : (
-          "No categories found"
+          "Категорий не найдено"
         )}
       </div>
     </div>

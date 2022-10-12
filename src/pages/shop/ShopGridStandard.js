@@ -10,8 +10,10 @@ import Breadcrumb from '../../wrappers/breadcrumb/Breadcrumb';
 import ShopSidebar from '../../wrappers/product/ShopSidebar';
 import ShopTopbar from '../../wrappers/product/ShopTopbar';
 import ShopProducts from '../../wrappers/product/ShopProducts';
+import {getAllGoods} from "../../redux/actions/goodsActions";
 
-const ShopGridStandard = ({location, products}) => {
+const ShopGridStandard = ({location, products, all_goods,
+                              one_goods, getAllGoods}) => {
     const [layout, setLayout] = useState('grid three-column');
     const [sortType, setSortType] = useState('');
     const [sortValue, setSortValue] = useState('');
@@ -21,6 +23,13 @@ const ShopGridStandard = ({location, products}) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentData, setCurrentData] = useState([]);
     const [sortedProducts, setSortedProducts] = useState([]);
+
+    console.log(all_goods)
+
+    useEffect(() => {
+        console.log(11)
+        getAllGoods()
+    }, [])
 
     const pageLimit = 15;
     const {pathname} = location;
@@ -40,12 +49,12 @@ const ShopGridStandard = ({location, products}) => {
     }
 
     useEffect(() => {
-        let sortedProducts = getSortedProducts(products, sortType, sortValue);
+        let sortedProducts = getSortedProducts(all_goods, sortType, sortValue);
         const filterSortedProducts = getSortedProducts(sortedProducts, filterSortType, filterSortValue);
         sortedProducts = filterSortedProducts;
         setSortedProducts(sortedProducts);
         setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
-    }, [offset, products, sortType, sortValue, filterSortType, filterSortValue ]);
+    }, [offset, all_goods, sortType, sortValue, filterSortType, filterSortValue ]);
 
     return (
         <Fragment>
@@ -66,11 +75,11 @@ const ShopGridStandard = ({location, products}) => {
                         <div className="row">
                             <div className="col-lg-3 order-2 order-lg-1">
                                 {/* shop sidebar */}
-                                <ShopSidebar products={products} getSortParams={getSortParams} sideSpaceClass="mr-30"/>
+                                {/*<ShopSidebar products={all_goods} getSortParams={getSortParams} sideSpaceClass="mr-30"/>*/}
                             </div>
                             <div className="col-lg-9 order-1 order-lg-2">
                                 {/* shop topbar default */}
-                                <ShopTopbar getLayout={getLayout} getFilterSortParams={getFilterSortParams} productCount={products.length} sortedProductCount={currentData.length} />
+                                <ShopTopbar getLayout={getLayout} getFilterSortParams={getFilterSortParams} productCount={all_goods.length} sortedProductCount={currentData.length} />
 
                                 {/* shop page content default */}
                                 <ShopProducts layout={layout} products={currentData} />
@@ -103,10 +112,12 @@ ShopGridStandard.propTypes = {
   products: PropTypes.array
 }
 
-const mapStateToProps = state => {
-    return{
-        products: state.productData.products
-    }
-}
+const mapStateToProps = state => (
+  {
+      products: state.productData.products,
+      all_goods: state.goods.all_goods,
+      one_goods: state.goods.one_goods,
+  }
+)
 
-export default connect(mapStateToProps)(ShopGridStandard);
+export default connect(mapStateToProps, {getAllGoods,})(ShopGridStandard);

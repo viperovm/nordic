@@ -1,18 +1,26 @@
 [
   {
     "id": 1,
-    "title": "Stylish",
-    "subtitle": "Male Clothes",
-    "text": "30% off Summer Vacation",
-    "image": "/assets/img/slider/slider-2.jpg",
-    "url": "/shop-grid-standard"
+    "title": "Это круто!",
+    "subtitle": "Мужские комбезы",
+    "text": "Лучшее к зиме!",
+    "image": "/assets/img/slider/men.jpg",
+    "url": "/shop"
   },
   {
     "id": 2,
-    "title": "Stylish",
-    "subtitle": "Female Clothes",
-    "text": "30% off Summer Vacation",
-    "image": "/assets/img/slider/slider-2-2.jpg",
-    "url": "/shop-grid-standard"
+    "title": "Это круто!",
+    "subtitle": "Женские комбезы",
+    "text": "Лучшее к зиме!",
+    "image": "/assets/img/slider/women.jpg",
+    "url": "/shop"
+  },
+  {
+    "id": 3,
+    "title": "Это круто!",
+    "subtitle": "Детские комбезы",
+    "text": "Лучшее к зиме!",
+    "image": "/assets/img/slider/children.jpg",
+    "url": "/shop"
   }
 ]

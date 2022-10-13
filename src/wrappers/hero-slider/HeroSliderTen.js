@@ -1,9 +1,40 @@
 import React from "react";
 import Swiper from "react-id-swiper";
-import sliderData from "../../data/hero-sliders/hero-slider-ten.json";
+// import sliderData from "../../data/hero-sliders/hero-slider-ten.json";
 import HeroSliderTenSingle from "../../components/hero-slider/HeroSliderTenSingle.js";
+import men from "../../assets/img/slider/men.jpg"
+import women from "../../assets/img/slider/women.jpg"
+import children from "../../assets/img/slider/children.jpg"
 
 const HeroSliderTen = () => {
+
+  const sliderData = [
+    {
+      id: 1,
+      title: "Это круто!",
+      subtitle: "Мужские комбезы",
+      text: "Лучшее к зиме!",
+      image: men,
+      url: "/shop"
+    },
+    {
+      id: 2,
+      title: "Это круто!",
+      subtitle: "Женские комбезы",
+      text: "Лучшее к зиме!",
+      image: women,
+      url: "/shop"
+    },
+    {
+      id: 3,
+      title: "Это круто!",
+      subtitle: "Детские комбезы",
+      text: "Лучшее к зиме!",
+      image: children,
+      url: "/shop"
+    }
+  ]
+
   const params = {
     effect: "fade",
     loop: true,

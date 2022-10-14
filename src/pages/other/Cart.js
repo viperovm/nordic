@@ -88,7 +88,7 @@ const Cart = ({
                             return (
                               <tr key={key}>
                                 <td className="product-thumbnail">
-                                  <Link
+                                  {cartItem?.goods_gallery?.length > 0 && <Link
                                     to={
                                       process.env.PUBLIC_URL + "/temp" +
                                       "/product/" +
@@ -102,7 +102,7 @@ const Cart = ({
                                       }
                                       alt=""
                                     />
-                                  </Link>
+                                  </Link>}
                                 </td>
 
                                 <td className="product-name">

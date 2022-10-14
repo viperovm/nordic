@@ -33,7 +33,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
 
               return (
                 <li className="single-shopping-cart" key={key}>
-                  <div className="shopping-cart-img">
+                  {single?.goods_gallery?.length > 0 && <div className="shopping-cart-img">
                     <Link to={process.env.PUBLIC_URL + "/temp" + "/product/" + single.id}>
                       <img
                         alt=""
@@ -41,7 +41,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                         className="img-fluid"
                       />
                     </Link>
-                  </div>
+                  </div>}
                   <div className="shopping-cart-title">
                     <h4>
                       <Link

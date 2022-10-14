@@ -34,16 +34,23 @@ export const getOneGoods = (id) => async dispatch => {
     }
   };
 
-  try {
-    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/goods/${id}/`, config);
+  if(id) {
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/goods/${id}/`, config);
 
+      dispatch({
+        type: t.GET_ONE_GOODS_SUCCESS,
+        payload: res.data
+      })
+    } catch (err) {
+      dispatch({
+        type: t.GET_ONE_GOODS_FAIL
+      })
+    }
+  } else {
     dispatch({
       type: t.GET_ONE_GOODS_SUCCESS,
-      payload: res.data
-    })
-  } catch (err) {
-    dispatch({
-      type: t.GET_ONE_GOODS_FAIL
+      payload: null
     })
   }
 }

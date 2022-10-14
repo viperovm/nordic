@@ -19,17 +19,17 @@ const ProductImageDescription = ({
   compareItems
 }) => {
   const wishlistItem = wishlistItems.filter(
-    wishlistItem => wishlistItem.id === product.id
+    wishlistItem => wishlistItem?.id === product?.id
   )[0];
   const compareItem = compareItems.filter(
-    compareItem => compareItem.id === product.id
+    compareItem => compareItem?.id === product?.id
   )[0];
   const { addToast } = useToasts();
 
-  const discountedPrice = getDiscountPrice(product.price, product.discount);
-  const finalProductPrice = +(product.price * currency.currencyRate).toFixed(2);
+  const discountedPrice = getDiscountPrice(product?.price, product?.discount);
+  const finalProductPrice = +(product?.price * currency?.currencyRate).toFixed(2);
   const finalDiscountedPrice = +(
-    discountedPrice * currency.currencyRate
+    discountedPrice * currency?.currencyRate
   ).toFixed(2);
 
   console.log(product)
@@ -43,19 +43,21 @@ const ProductImageDescription = ({
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6">
-            {/* product image gallery */}
-            {galleryType === "leftThumb" ? (
-              <ProductImageGallerySideThumb
-                product={product}
-                thumbPosition="left"
-              />
-            ) : galleryType === "rightThumb" ? (
-              <ProductImageGallerySideThumb product={product} />
-            ) : galleryType === "fixedImage" ? (
-              <ProductImageFixed product={product} />
-            ) : (
-              <ProductImageGallery product={product} />
-            )}
+            {/*/!* product image gallery *!/*/}
+            {/*{galleryType === "leftThumb" ? (*/}
+            {/*  <ProductImageGallerySideThumb*/}
+            {/*    product={product}*/}
+            {/*    thumbPosition="left"*/}
+            {/*  />*/}
+            {/*) : galleryType === "rightThumb" ? (*/}
+            {/*  <ProductImageGallerySideThumb product={product} />*/}
+            {/*) : galleryType === "fixedImage" ? (*/}
+            {/*  <ProductImageFixed product={product} />*/}
+            {/*) : (*/}
+            {/*  <ProductImageGallery product={product} />*/}
+            {/*)}*/}
+
+            <ProductImageGallery product={product} />
           </div>
           <div className="col-lg-6 col-md-6">
             {/* product description info */}

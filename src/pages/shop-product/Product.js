@@ -14,6 +14,7 @@ const Product = ({ location, product, getOneGoods, ...props }) => {
 
   useEffect(() => {
     getOneGoods(props.match.params.id)
+    return () => getOneGoods()
   }, [])
 
   console.log(props.match.params.id)

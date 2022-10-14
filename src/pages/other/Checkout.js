@@ -12,18 +12,20 @@ const Checkout = ({ location, cartItems, currency }) => {
   const { pathname } = location;
   let cartTotalPrice = 0;
 
+  console.log(cartItems)
+
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Checkout</title>
+        <title>NordicWay | Checkout</title>
         <meta
           name="description"
           content="Checkout page of flone react minimalist eCommerce template."
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Главная</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
-        Checkout
+        Оформление заказа
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
@@ -34,91 +36,95 @@ const Checkout = ({ location, cartItems, currency }) => {
               <div className="row">
                 <div className="col-lg-7">
                   <div className="billing-info-wrap">
-                    <h3>Billing Details</h3>
+                    <h3>Данные покупателя</h3>
                     <div className="row">
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
-                          <label>First Name</label>
+                          <label>Имя</label>
                           <input type="text" />
                         </div>
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
-                          <label>Last Name</label>
+                          <label>Фамилия</label>
                           <input type="text" />
                         </div>
                       </div>
+                      {/*<div className="col-lg-12">*/}
+                      {/*  <div className="billing-info mb-20">*/}
+                      {/*    <label>Company Name</label>*/}
+                      {/*    <input type="text" />*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
                       <div className="col-lg-12">
                         <div className="billing-info mb-20">
-                          <label>Company Name</label>
+                          <label>Город</label>
                           <input type="text" />
                         </div>
-                      </div>
-                      <div className="col-lg-12">
-                        <div className="billing-select mb-20">
-                          <label>Country</label>
-                          <select>
-                            <option>Select a country</option>
-                            <option>Azerbaijan</option>
-                            <option>Bahamas</option>
-                            <option>Bahrain</option>
-                            <option>Bangladesh</option>
-                            <option>Barbados</option>
-                          </select>
-                        </div>
+                        {/*<div className="billing-select mb-20">*/}
+                        {/*  <label>Город</label>*/}
+                        {/*  /!*<select>*!/*/}
+                        {/*  /!*  <option>Select a country</option>*!/*/}
+                        {/*  /!*  <option>Azerbaijan</option>*!/*/}
+                        {/*  /!*  <option>Bahamas</option>*!/*/}
+                        {/*  /!*  <option>Bahrain</option>*!/*/}
+                        {/*  /!*  <option>Bangladesh</option>*!/*/}
+                        {/*  /!*  <option>Barbados</option>*!/*/}
+                        {/*  /!*</select>*!/*/}
+                        {/*</div>*/}
                       </div>
                       <div className="col-lg-12">
                         <div className="billing-info mb-20">
-                          <label>Street Address</label>
+                          <label>Адрес</label>
                           <input
-                            className="billing-address"
-                            placeholder="House number and street name"
+                            className="mb-10"
+                            placeholder="Улица, дом, квартира"
                             type="text"
                           />
                           <input
-                            placeholder="Apartment, suite, unit etc."
+                            placeholder="Подъезд, этаж, домофон"
                             type="text"
                           />
                         </div>
                       </div>
-                      <div className="col-lg-12">
+                      {/*<div className="col-lg-12">*/}
+                      {/*  <div className="billing-info mb-20">*/}
+                      {/*    <label>Town / City</label>*/}
+                      {/*    <input type="text" />*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
+                      {/*<div className="col-lg-6 col-md-6">*/}
+                      {/*  <div className="billing-info mb-20">*/}
+                      {/*    <label>State / County</label>*/}
+                      {/*    <input type="text" />*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
+                      {/*<div className="col-lg-6 col-md-6">*/}
+                      {/*  <div className="billing-info mb-20">*/}
+                      {/*    <label>Postcode / ZIP</label>*/}
+                      {/*    <input type="text" />*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
+                      <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
-                          <label>Town / City</label>
+                          <label>Телефон</label>
                           <input type="text" />
                         </div>
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
-                          <label>State / County</label>
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div className="col-lg-6 col-md-6">
-                        <div className="billing-info mb-20">
-                          <label>Postcode / ZIP</label>
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div className="col-lg-6 col-md-6">
-                        <div className="billing-info mb-20">
-                          <label>Phone</label>
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div className="col-lg-6 col-md-6">
-                        <div className="billing-info mb-20">
-                          <label>Email Address</label>
+                          <label>Email</label>
                           <input type="text" />
                         </div>
                       </div>
                     </div>
 
                     <div className="additional-info-wrap">
-                      <h4>Additional information</h4>
+                      <h4>Дополнительная информация</h4>
                       <div className="additional-info">
-                        <label>Order notes</label>
+                        <label>Примечания к заказу</label>
                         <textarea
-                          placeholder="Notes about your order, e.g. special notes for delivery. "
+                          placeholder="Здесь вы можете написать особые пожелания к заказу."
                           name="message"
                           defaultValue={""}
                         />
@@ -129,13 +135,13 @@ const Checkout = ({ location, cartItems, currency }) => {
 
                 <div className="col-lg-5">
                   <div className="your-order-area">
-                    <h3>Your order</h3>
+                    <h3>Ваш заказ</h3>
                     <div className="your-order-wrap gray-bg-4">
                       <div className="your-order-product-info">
                         <div className="your-order-top">
                           <ul>
-                            <li>Product</li>
-                            <li>Total</li>
+                            <li>Товар</li>
+                            <li>Стоимость</li>
                           </ul>
                         </div>
                         <div className="your-order-middle">
@@ -160,16 +166,16 @@ const Checkout = ({ location, cartItems, currency }) => {
                               return (
                                 <li key={key}>
                                   <span className="order-middle-left">
-                                    {cartItem.name} X {cartItem.quantity}
+                                    {`${cartItem.name} (${cartItem.selectedProductSize}) X ${cartItem.quantity}`}
                                   </span>{" "}
                                   <span className="order-price">
                                     {discountedPrice !== null
-                                      ? currency.currencySymbol +
+                                      ? '₽' +
                                         (
                                           finalDiscountedPrice *
                                           cartItem.quantity
                                         ).toFixed(2)
-                                      : currency.currencySymbol +
+                                      : '₽' +
                                         (
                                           finalProductPrice * cartItem.quantity
                                         ).toFixed(2)}
@@ -179,17 +185,17 @@ const Checkout = ({ location, cartItems, currency }) => {
                             })}
                           </ul>
                         </div>
-                        <div className="your-order-bottom">
-                          <ul>
-                            <li className="your-order-shipping">Shipping</li>
-                            <li>Free shipping</li>
-                          </ul>
-                        </div>
+                        {/*<div className="your-order-bottom">*/}
+                        {/*  <ul>*/}
+                        {/*    <li className="your-order-shipping">Shipping</li>*/}
+                        {/*    <li>Free shipping</li>*/}
+                        {/*  </ul>*/}
+                        {/*</div>*/}
                         <div className="your-order-total">
                           <ul>
-                            <li className="order-total">Total</li>
+                            <li className="order-total">Итого</li>
                             <li>
-                              {currency.currencySymbol +
+                              {'₽' +
                                 cartTotalPrice.toFixed(2)}
                             </li>
                           </ul>
@@ -198,7 +204,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                       <div className="payment-method"></div>
                     </div>
                     <div className="place-order mt-25">
-                      <button className="btn-hover">Place Order</button>
+                      <button className="btn-hover">Разместить заказ</button>
                     </div>
                   </div>
                 </div>
@@ -211,9 +217,9 @@ const Checkout = ({ location, cartItems, currency }) => {
                       <i className="pe-7s-cash"></i>
                     </div>
                     <div className="item-empty-area__text">
-                      No items found in cart to checkout <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-standard"}>
-                        Shop Now
+                      Нечего оформлять <br />{" "}
+                      <Link to={process.env.PUBLIC_URL + "/temp" + "/shop"}>
+                        В магазин
                       </Link>
                     </div>
                   </div>

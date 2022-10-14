@@ -14,7 +14,7 @@ const cartReducer = (state = initState, action) => {
 
   if (action.type === ADD_TO_CART) {
     // for non variant products
-    if (product.variation === undefined) {
+    if (product.size === undefined) {
       const cartItem = cartItems.filter(item => item.id === product.id)[0];
       if (cartItem === undefined) {
         return [
@@ -42,8 +42,6 @@ const cartReducer = (state = initState, action) => {
       const cartItem = cartItems.filter(
         item =>
           item.id === product.id &&
-          product.selectedProductColor &&
-          product.selectedProductColor === item.selectedProductColor &&
           product.selectedProductSize &&
           product.selectedProductSize === item.selectedProductSize &&
           (product.cartItemId ? product.cartItemId === item.cartItemId : true)
@@ -60,8 +58,7 @@ const cartReducer = (state = initState, action) => {
         ];
       } else if (
         cartItem !== undefined &&
-        (cartItem.selectedProductColor !== product.selectedProductColor ||
-          cartItem.selectedProductSize !== product.selectedProductSize)
+        (cartItem.selectedProductSize !== product.selectedProductSize)
       ) {
         return [
           ...cartItems,

@@ -10,7 +10,7 @@ import {
   addToCart,
   decreaseQuantity,
   deleteFromCart,
-  cartItemStock,
+  // cartItemStock,
   deleteAllFromCart
 } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -33,16 +33,16 @@ const Cart = ({
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Cart</title>
+        <title>NordicWay | Cart</title>
         <meta
           name="description"
           content="Cart page of flone react minimalist eCommerce template."
         />
       </MetaTags>
 
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Главная</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
-        Cart
+        Корзина
       </BreadcrumbsItem>
 
       <LayoutOne headerTop="visible">
@@ -52,19 +52,19 @@ const Cart = ({
           <div className="container">
             {cartItems && cartItems.length >= 1 ? (
               <Fragment>
-                <h3 className="cart-page-title">Your cart items</h3>
+                <h3 className="cart-page-title">Ваш товар</h3>
                 <div className="row">
                   <div className="col-12">
                     <div className="table-content table-responsive cart-table-content">
                       <table>
                         <thead>
                           <tr>
-                            <th>Image</th>
-                            <th>Product Name</th>
-                            <th>Unit Price</th>
-                            <th>Qty</th>
-                            <th>Subtotal</th>
-                            <th>action</th>
+                            <th>Изображение</th>
+                            <th>Наименование</th>
+                            <th>Цена</th>
+                            <th>Кол-во</th>
+                            <th>Стоимость</th>
+                            <th>Действие</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -98,8 +98,7 @@ const Cart = ({
                                     <img
                                       className="img-fluid"
                                       src={
-                                        process.env.PUBLIC_URL + "/temp" +
-                                        cartItem.image[0]
+                                        cartItem?.goods_gallery[0].image
                                       }
                                       alt=""
                                     />
@@ -116,36 +115,29 @@ const Cart = ({
                                   >
                                     {cartItem.name}
                                   </Link>
-                                  {cartItem.selectedProductColor &&
-                                  cartItem.selectedProductSize ? (
+                                  {cartItem.selectedProductSize &&
                                     <div className="cart-item-variation">
                                       <span>
-                                        Color: {cartItem.selectedProductColor}
+                                        Размер: {cartItem.selectedProductSize}
                                       </span>
-                                      <span>
-                                        Size: {cartItem.selectedProductSize}
-                                      </span>
-                                    </div>
-                                  ) : (
-                                    ""
-                                  )}
+                                    </div>}
                                 </td>
 
                                 <td className="product-price-cart">
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {currency.currencySymbol +
+                                        {'₽' +
                                           finalProductPrice}
                                       </span>
                                       <span className="amount">
-                                        {currency.currencySymbol +
+                                        {'₽' +
                                           finalDiscountedPrice}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className="amount">
-                                      {currency.currencySymbol +
+                                      {'₽' +
                                         finalProductPrice}
                                     </span>
                                   )}
@@ -176,16 +168,16 @@ const Cart = ({
                                           quantityCount
                                         )
                                       }
-                                      disabled={
-                                        cartItem !== undefined &&
-                                        cartItem.quantity &&
-                                        cartItem.quantity >=
-                                          cartItemStock(
-                                            cartItem,
-                                            cartItem.selectedProductColor,
-                                            cartItem.selectedProductSize
-                                          )
-                                      }
+                                      // disabled={
+                                      //   cartItem !== undefined &&
+                                      //   cartItem.quantity &&
+                                      //   cartItem.quantity >=
+                                      //     cartItemStock(
+                                      //       cartItem,
+                                      //       cartItem.selectedProductColor,
+                                      //       cartItem.selectedProductSize
+                                      //     )
+                                      // }
                                     >
                                       +
                                     </button>
@@ -193,11 +185,11 @@ const Cart = ({
                                 </td>
                                 <td className="product-subtotal">
                                   {discountedPrice !== null
-                                    ? currency.currencySymbol +
+                                    ? '₽' +
                                       (
                                         finalDiscountedPrice * cartItem.quantity
                                       ).toFixed(2)
-                                    : currency.currencySymbol +
+                                    : '₽' +
                                       (
                                         finalProductPrice * cartItem.quantity
                                       ).toFixed(2)}
@@ -225,14 +217,14 @@ const Cart = ({
                     <div className="cart-shiping-update-wrapper">
                       <div className="cart-shiping-update">
                         <Link
-                          to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-standard"}
+                          to={process.env.PUBLIC_URL + "/temp" + "/shop"}
                         >
-                          Continue Shopping
+                          Продолжить покупки
                         </Link>
                       </div>
                       <div className="cart-clear">
                         <button onClick={() => deleteAllFromCart(addToast)}>
-                          Clear Shopping Cart
+                          Очистить корзину
                         </button>
                       </div>
                     </div>
@@ -240,91 +232,91 @@ const Cart = ({
                 </div>
 
                 <div className="row">
-                  <div className="col-lg-4 col-md-6">
-                    <div className="cart-tax">
-                      <div className="title-wrap">
-                        <h4 className="cart-bottom-title section-bg-gray">
-                          Estimate Shipping And Tax
-                        </h4>
-                      </div>
-                      <div className="tax-wrapper">
-                        <p>
-                          Enter your destination to get a shipping estimate.
-                        </p>
-                        <div className="tax-select-wrapper">
-                          <div className="tax-select">
-                            <label>* Country</label>
-                            <select className="email s-email s-wid">
-                              <option>Bangladesh</option>
-                              <option>Albania</option>
-                              <option>Åland Islands</option>
-                              <option>Afghanistan</option>
-                              <option>Belgium</option>
-                            </select>
-                          </div>
-                          <div className="tax-select">
-                            <label>* Region / State</label>
-                            <select className="email s-email s-wid">
-                              <option>Bangladesh</option>
-                              <option>Albania</option>
-                              <option>Åland Islands</option>
-                              <option>Afghanistan</option>
-                              <option>Belgium</option>
-                            </select>
-                          </div>
-                          <div className="tax-select">
-                            <label>* Zip/Postal Code</label>
-                            <input type="text" />
-                          </div>
-                          <button className="cart-btn-2" type="submit">
-                            Get A Quote
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {/*<div className="col-lg-8 col-md-6">*/}
+                  {/*  <div className="cart-tax">*/}
+                  {/*    <div className="title-wrap">*/}
+                  {/*      <h4 className="cart-bottom-title section-bg-gray">*/}
+                  {/*        Estimate Shipping And Tax*/}
+                  {/*      </h4>*/}
+                  {/*    </div>*/}
+                  {/*    <div className="tax-wrapper">*/}
+                  {/*      <p>*/}
+                  {/*        Enter your destination to get a shipping estimate.*/}
+                  {/*      </p>*/}
+                  {/*      <div className="tax-select-wrapper">*/}
+                  {/*        <div className="tax-select">*/}
+                  {/*          <label>* Country</label>*/}
+                  {/*          <select className="email s-email s-wid">*/}
+                  {/*            <option>Bangladesh</option>*/}
+                  {/*            <option>Albania</option>*/}
+                  {/*            <option>Åland Islands</option>*/}
+                  {/*            <option>Afghanistan</option>*/}
+                  {/*            <option>Belgium</option>*/}
+                  {/*          </select>*/}
+                  {/*        </div>*/}
+                  {/*        <div className="tax-select">*/}
+                  {/*          <label>* Region / State</label>*/}
+                  {/*          <select className="email s-email s-wid">*/}
+                  {/*            <option>Bangladesh</option>*/}
+                  {/*            <option>Albania</option>*/}
+                  {/*            <option>Åland Islands</option>*/}
+                  {/*            <option>Afghanistan</option>*/}
+                  {/*            <option>Belgium</option>*/}
+                  {/*          </select>*/}
+                  {/*        </div>*/}
+                  {/*        <div className="tax-select">*/}
+                  {/*          <label>* Zip/Postal Code</label>*/}
+                  {/*          <input type="text" />*/}
+                  {/*        </div>*/}
+                  {/*        <button className="cart-btn-2" type="submit">*/}
+                  {/*          Get A Quote*/}
+                  {/*        </button>*/}
+                  {/*      </div>*/}
+                  {/*    </div>*/}
+                  {/*  </div>*/}
+                  {/*</div>*/}
 
-                  <div className="col-lg-4 col-md-6">
-                    <div className="discount-code-wrapper">
-                      <div className="title-wrap">
-                        <h4 className="cart-bottom-title section-bg-gray">
-                          Use Coupon Code
-                        </h4>
-                      </div>
-                      <div className="discount-code">
-                        <p>Enter your coupon code if you have one.</p>
-                        <form>
-                          <input type="text" required name="name" />
-                          <button className="cart-btn-2" type="submit">
-                            Apply Coupon
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
+                  {/*<div className="col-lg-4 col-md-6">*/}
+                  {/*  <div className="discount-code-wrapper">*/}
+                  {/*    <div className="title-wrap">*/}
+                  {/*      <h4 className="cart-bottom-title section-bg-gray">*/}
+                  {/*        Use Coupon Code*/}
+                  {/*      </h4>*/}
+                  {/*    </div>*/}
+                  {/*    <div className="discount-code">*/}
+                  {/*      <p>Enter your coupon code if you have one.</p>*/}
+                  {/*      <form>*/}
+                  {/*        <input type="text" required name="name" />*/}
+                  {/*        <button className="cart-btn-2" type="submit">*/}
+                  {/*          Apply Coupon*/}
+                  {/*        </button>*/}
+                  {/*      </form>*/}
+                  {/*    </div>*/}
+                  {/*  </div>*/}
+                  {/*</div>*/}
 
                   <div className="col-lg-4 col-md-12">
                     <div className="grand-totall">
                       <div className="title-wrap">
                         <h4 className="cart-bottom-title section-bg-gary-cart">
-                          Cart Total
+                          Итоговая стоимость
                         </h4>
                       </div>
                       <h5>
-                        Total products{" "}
-                        <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
-                        </span>
+                        {/*Total products{" "}*/}
+                        {/*<span>*/}
+                        {/*  {'₽' + cartTotalPrice.toFixed(2)}*/}
+                        {/*</span>*/}
                       </h5>
 
                       <h4 className="grand-totall-title">
-                        Grand Total{" "}
+                        Итого{" "}
                         <span>
-                          {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                          {'₽' + cartTotalPrice.toFixed(2)}
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/temp" + "/checkout"}>
-                        Proceed to Checkout
+                        Оформить
                       </Link>
                     </div>
                   </div>
@@ -338,9 +330,9 @@ const Cart = ({
                       <i className="pe-7s-cart"></i>
                     </div>
                     <div className="item-empty-area__text">
-                      No items found in cart <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-standard"}>
-                        Shop Now
+                      Корзина пуста <br />{" "}
+                      <Link to={process.env.PUBLIC_URL + "/temp" + "/shop"}>
+                        В магазин
                       </Link>
                     </div>
                   </div>

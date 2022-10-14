@@ -106,38 +106,38 @@ const App = (props) => {
                   path={process.env.PUBLIC_URL + "/temp" + "/shop"}
                   component={ShopGridStandard}
                 />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-filter"}
-                  component={ShopGridFilter}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-two-column"}
-                  component={ShopGridTwoColumn}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-no-sidebar"}
-                  component={ShopGridNoSidebar}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-full-width"}
-                  component={ShopGridFullWidth}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-right-sidebar"}
-                  component={ShopGridRightSidebar}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/shop-list-standard"}
-                  component={ShopListStandard}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/shop-list-full-width"}
-                  component={ShopListFullWidth}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/shop-list-two-column"}
-                  component={ShopListTwoColumn}
-                />
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-filter"}*/}
+                {/*  component={ShopGridFilter}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-two-column"}*/}
+                {/*  component={ShopGridTwoColumn}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-no-sidebar"}*/}
+                {/*  component={ShopGridNoSidebar}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-full-width"}*/}
+                {/*  component={ShopGridFullWidth}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/shop-grid-right-sidebar"}*/}
+                {/*  component={ShopGridRightSidebar}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/shop-list-standard"}*/}
+                {/*  component={ShopListStandard}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/shop-list-full-width"}*/}
+                {/*  component={ShopListFullWidth}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/shop-list-two-column"}*/}
+                {/*  component={ShopListTwoColumn}*/}
+                {/*/>*/}
 
                 {/* Shop product pages */}
                 <Route

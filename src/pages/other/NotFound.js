@@ -12,15 +12,15 @@ const NotFound = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Not Found</title>
+        <title>NordicWay | Not Found</title>
         <meta
           name="description"
           content="404 page of flone react minimalist eCommerce template."
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Главная</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
-        404 page
+        404
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
         {/* breadcrumb */}
@@ -31,25 +31,24 @@ const NotFound = ({ location }) => {
               <div className="col-xl-7 col-lg-8 text-center">
                 <div className="error">
                   <h1>404</h1>
-                  <h2>OPPS! PAGE NOT FOUND</h2>
-                  <p>
-                    Sorry but the page you are looking for does not exist, have
-                    been removed, name changed or is temporarity unavailable.
+                  <h2>ОЙ! СТРАНИЦА НЕ НАЙДЕНА</h2>
+                  <p className='mb-50'>
+                    Мы сожалеем, но страница, которую Вы ищите, не существует, была удалена, или временно недоступна.
                   </p>
-                  <form className="searchform mb-50">
-                    <input
-                      type="text"
-                      name="search"
-                      id="error_search"
-                      placeholder="Search..."
-                      className="searchform__input"
-                    />
-                    <button type="submit" className="searchform__submit">
-                      <i className="fa fa-search" />
-                    </button>
-                  </form>
+                  {/*<form className="searchform mb-50">*/}
+                  {/*  <input*/}
+                  {/*    type="text"*/}
+                  {/*    name="search"*/}
+                  {/*    id="error_search"*/}
+                  {/*    placeholder="Search..."*/}
+                  {/*    className="searchform__input"*/}
+                  {/*  />*/}
+                  {/*  <button type="submit" className="searchform__submit">*/}
+                  {/*    <i className="fa fa-search" />*/}
+                  {/*  </button>*/}
+                  {/*</form>*/}
                   <Link to={process.env.PUBLIC_URL + "/temp" + "/"} className="error-btn">
-                    Back to home page
+                    На Главную
                   </Link>
                 </div>
               </div>

@@ -38,7 +38,7 @@ const ShopGridStandard = ({location, products, all_goods,
         }
     }, [all_categories])
 
-    const pageLimit = 15;
+    const pageLimit = 50;
     const {pathname} = location;
 
     const getLayout = (layout) => {
@@ -66,12 +66,12 @@ const ShopGridStandard = ({location, products, all_goods,
     return (
         <Fragment>
             <MetaTags>
-                <title>Flone | Shop Page</title>
+                <title>NordicWay | Shop Page</title>
                 <meta name="description" content="Shop page of flone react minimalist eCommerce template." />
             </MetaTags>
 
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + '/'}>Home</BreadcrumbsItem>
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>Shop</BreadcrumbsItem>
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + '/'}>Главная</BreadcrumbsItem>
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>Магазин</BreadcrumbsItem>
 
             <LayoutOne headerTop="visible">
                 {/* breadcrumb */}
@@ -82,7 +82,7 @@ const ShopGridStandard = ({location, products, all_goods,
                         <div className="row">
                             <div className="col-lg-3 order-2 order-lg-1">
                                 {/* shop sidebar */}
-                                {/*<ShopSidebar categories={all_categories} products={all_goods} getSortParams={getSortParams} sideSpaceClass="mr-30"/>*/}
+                                <ShopSidebar categories={all_categories} products={all_goods} getSortParams={getSortParams} sideSpaceClass="mr-30"/>
                             </div>
                             <div className="col-lg-9 order-1 order-lg-2">
                                 {/* shop topbar default */}

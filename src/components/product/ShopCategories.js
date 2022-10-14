@@ -15,6 +15,7 @@ const ShopCategories = ({ categories, getSortParams }) => {
                 <button
                   onClick={e => {
                     getSortParams("category", "");
+                    console.log(e.target.value)
                     setActiveSort(e);
                   }}
                 >

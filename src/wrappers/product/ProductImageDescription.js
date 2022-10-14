@@ -32,6 +32,8 @@ const ProductImageDescription = ({
     discountedPrice * currency.currencyRate
   ).toFixed(2);
 
+  console.log(product)
+
   return (
     <div
       className={`shop-area ${spaceTopClass ? spaceTopClass : ""} ${
@@ -59,13 +61,13 @@ const ProductImageDescription = ({
             {/* product description info */}
             <ProductDescriptionInfo
               product={product}
-              discountedPrice={discountedPrice}
+              // discountedPrice={discountedPrice}
               currency={currency}
-              finalDiscountedPrice={finalDiscountedPrice}
+              // finalDiscountedPrice={finalDiscountedPrice}
               finalProductPrice={finalProductPrice}
               cartItems={cartItems}
-              wishlistItem={wishlistItem}
-              compareItem={compareItem}
+              // wishlistItem={wishlistItem}
+              // compareItem={compareItem}
               addToast={addToast}
             />
           </div>

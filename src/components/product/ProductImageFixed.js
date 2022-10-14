@@ -18,9 +18,9 @@ const ProductImageFixed = ({ product }) => {
       )}
 
       <div className="product-fixed-image">
-        {product.image ? (
+        {product?.goods_gallery.length ? (
           <img
-            src={process.env.PUBLIC_URL + product.image[0]}
+            src={product?.goods_gallery[0].image}
             alt=""
             className="img-fluid"
           />

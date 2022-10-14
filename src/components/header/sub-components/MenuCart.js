@@ -5,6 +5,9 @@ import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../../helpers/product";
 
 const MenuCart = ({ cartData, currency, deleteFromCart }) => {
+
+  console.log(cartData)
+
   let cartTotalPrice = 0;
   const { addToast } = useToasts();
   return (
@@ -34,7 +37,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                     <Link to={process.env.PUBLIC_URL + "/temp" + "/product/" + single.id}>
                       <img
                         alt=""
-                        src={process.env.PUBLIC_URL + "/temp" + single.image[0]}
+                        src={single?.goods_gallery[0].image}
                         className="img-fluid"
                       />
                     </Link>
@@ -48,21 +51,16 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                         {single.name}{" "}
                       </Link>
                     </h4>
-                    <h6>Qty: {single.quantity}</h6>
+                    <h6>Кол-во: {single.quantity}</h6>
                     <span>
                       {discountedPrice !== null
-                        ? currency.currencySymbol + finalDiscountedPrice
-                        : currency.currencySymbol + finalProductPrice}
+                        ? '₽' + finalDiscountedPrice
+                        : '₽' + finalProductPrice}
                     </span>
-                    {single.selectedProductColor &&
-                    single.selectedProductSize ? (
+                    {single.selectedProductSize &&
                       <div className="cart-item-variation">
-                        <span>Color: {single.selectedProductColor}</span>
-                        <span>Size: {single.selectedProductSize}</span>
-                      </div>
-                    ) : (
-                      ""
-                    )}
+                        <span>Размер: {single.selectedProductSize}</span>
+                      </div>}
                   </div>
                   <div className="shopping-cart-delete">
                     <button onClick={() => deleteFromCart(single, addToast)}>
@@ -75,26 +73,26 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
           </ul>
           <div className="shopping-cart-total">
             <h4>
-              Total :{" "}
+              Итого :{" "}
               <span className="shop-total">
-                {currency.currencySymbol + cartTotalPrice.toFixed(2)}
+                {'₽' + cartTotalPrice.toFixed(2)}
               </span>
             </h4>
           </div>
           <div className="shopping-cart-btn btn-hover text-center">
             <Link className="default-btn" to={process.env.PUBLIC_URL + "/temp" + "/cart"}>
-              view cart
+              Посмотреть корзину
             </Link>
             <Link
               className="default-btn"
               to={process.env.PUBLIC_URL + "/temp" + "/checkout"}
             >
-              checkout
+              Оформить
             </Link>
           </div>
         </Fragment>
       ) : (
-        <p className="text-center">No items added to cart</p>
+        <p className="text-center">Корзина пуста</p>
       )}
     </div>
   );

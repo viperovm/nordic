@@ -23,7 +23,7 @@ const ProductDescriptionInfo = ({
   addToCompare
 }) => {
   const [selectedProductSize, setSelectedProductSize] = useState(
-    product.size.length ? product.size[0].size : ""
+    product?.size?.length ? product?.size[0].size : ""
   );
 
   const [quantityCount, setQuantityCount] = useState(1);
@@ -37,9 +37,9 @@ const ProductDescriptionInfo = ({
 
   return (
     <div className="product-details-content ml-70">
-      <h2>{product.name}</h2>
+      <h2>{product?.name}</h2>
       <div className="product-details-price">
-        <span>₽{product.price} </span>
+        <span>₽{product?.price} </span>
       </div>
 
       <div className="pro-details-size-color">
@@ -54,18 +54,18 @@ const ProductDescriptionInfo = ({
                         >
                           <input
                             type="radio"
-                            value={singleSize.size}
+                            value={singleSize?.size}
                             checked={
-                              singleSize.size === selectedProductSize
+                              singleSize?.size === selectedProductSize
                                 ? "checked"
                                 : ""
                             }
                             onChange={() => {
-                              setSelectedProductSize(singleSize.size);
+                              setSelectedProductSize(singleSize?.size);
                               setQuantityCount(1);
                             }}
                           />
-                          <span className="size-name">{singleSize.size}</span>
+                          <span className="size-name">{singleSize?.size}</span>
                         </label>
                       );
                     })

@@ -8,6 +8,7 @@ import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import {setOrder, setOrderData} from "../../redux/actions/goodsActions";
+import Cookies from "js-cookie";
 
 const Checkout = ({ location, cartItems, order_data, setOrderData, setOrder }) => {
   const { pathname } = location;
@@ -15,6 +16,8 @@ const Checkout = ({ location, cartItems, order_data, setOrderData, setOrder }) =
 
   const [cartItemsText, setCartItemsText] = useState('')
   const [cartTotalPrice, setCartTotalPrice] = useState(0)
+
+  console.log(Cookies.get('csrftoken'))
 
   const get_cart_text = () => {
     return cartItems?.map(

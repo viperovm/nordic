@@ -2,6 +2,8 @@ import axios from "axios";
 
 import * as t from '../types'
 
+import Cookies from 'js-cookie';
+
 export const getAllGoods = () => async dispatch => {
   const config = {
     headers: {
@@ -86,6 +88,8 @@ export const setOrder = (data) => async dispatch => {
       'Accept': 'application/json'
     }
   };
+
+  console.log(Cookies.get('csrftoken'))
 
   const body = JSON.stringify(data)
 

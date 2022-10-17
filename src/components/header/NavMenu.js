@@ -15,7 +15,7 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
       <nav>
         <ul>
           <li>
-            <Link to={process.env.PUBLIC_URL + "/temp" + "/shop"}>
+            <Link to={process.env.PUBLIC_URL + "/shop"}>
               Магазин
               {" "}
               {strings["Магазин"]}
@@ -31,54 +31,54 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
             {/*  <li>*/}
             {/*    <ul>*/}
             {/*      <li className="mega-menu-title">*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-standard"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>*/}
             {/*          {strings["shop_layout"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-standard"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>*/}
             {/*          {strings["shop_grid_standard"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-filter"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-grid-filter"}>*/}
             {/*          {strings["shop_grid_filter"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-two-column"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-grid-two-column"}>*/}
             {/*          {strings["shop_grid_two_column"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-no-sidebar"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-grid-no-sidebar"}>*/}
             {/*          {strings["shop_grid_no_sidebar"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-full-width"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-grid-full-width"}>*/}
             {/*          {strings["shop_grid_full_width"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
             {/*        <Link*/}
-            {/*          to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-right-sidebar"}*/}
+            {/*          to={process.env.PUBLIC_URL + "/shop-grid-right-sidebar"}*/}
             {/*        >*/}
             {/*          {strings["shop_grid_right_sidebar"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-list-standard"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-list-standard"}>*/}
             {/*          {strings["shop_list_standard"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-list-full-width"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-list-full-width"}>*/}
             {/*          {strings["shop_list_full_width"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-list-two-column"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-list-two-column"}>*/}
             {/*          {strings["shop_list_two_column"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
@@ -87,54 +87,54 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
             {/*  <li>*/}
             {/*    <ul>*/}
             {/*      <li className="mega-menu-title">*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/product/1"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/product/1"}>*/}
             {/*          {strings["product_details"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/product/1"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/product/1"}>*/}
             {/*          {strings["product_tab_bottom"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/product-tab-left/1"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/product-tab-left/1"}>*/}
             {/*          {strings["product_tab_left"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/product-tab-right/1"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/product-tab-right/1"}>*/}
             {/*          {strings["product_tab_right"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/product-sticky/1"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/product-sticky/1"}>*/}
             {/*          {strings["product_sticky"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/product-slider/1"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/product-slider/1"}>*/}
             {/*          {strings["product_slider"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
             {/*        <Link*/}
-            {/*          to={process.env.PUBLIC_URL + "/temp" + "/product-fixed-image/1"}*/}
+            {/*          to={process.env.PUBLIC_URL + "/product-fixed-image/1"}*/}
             {/*        >*/}
             {/*          {strings["product_fixed_image"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/product/8"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/product/8"}>*/}
             {/*          {strings["product_simple"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/product/1"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/product/1"}>*/}
             {/*          {strings["product_variation"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
             {/*      <li>*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/product/9"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/product/9"}>*/}
             {/*          {strings["product_affiliate"]}*/}
             {/*        </Link>*/}
             {/*      </li>*/}
@@ -143,10 +143,10 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
             {/*  <li>*/}
             {/*    <ul>*/}
             {/*      <li className="mega-menu-img">*/}
-            {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-standard"}>*/}
+            {/*        <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>*/}
             {/*          <img*/}
             {/*            src={*/}
-            {/*              process.env.PUBLIC_URL + "/temp" +*/}
+            {/*              process.env.PUBLIC_URL +*/}
             {/*              "/assets/img/banner/banner-12.png"*/}
             {/*            }*/}
             {/*            alt=""*/}
@@ -158,12 +158,12 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
             {/*</ul>*/}
           </li>
           {/*<li>*/}
-          {/*  <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-standard"}>*/}
+          {/*  <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>*/}
           {/*    {strings["collection"]}*/}
           {/*  </Link>*/}
           {/*</li>*/}
           {/*<li>*/}
-          {/*  <Link to={process.env.PUBLIC_URL + "/temp" + "/"}>*/}
+          {/*  <Link to={process.env.PUBLIC_URL + "/"}>*/}
           {/*    {strings["pages"]}*/}
           {/*    {sidebarMenu ? (*/}
           {/*      <span>*/}
@@ -175,54 +175,54 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
           {/*  </Link>*/}
           {/*  <ul className="submenu">*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/cart"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/cart"}>*/}
           {/*        {strings["cart"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/checkout"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/checkout"}>*/}
           {/*        {strings["checkout"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/wishlist"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/wishlist"}>*/}
           {/*        {strings["wishlist"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/compare"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/compare"}>*/}
           {/*        {strings["compare"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/my-account"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/my-account"}>*/}
           {/*        {strings["my_account"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/login-register"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/login-register"}>*/}
           {/*        {strings["login_register"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/about"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/about"}>*/}
           {/*        {strings["about_us"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/contact"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/contact"}>*/}
           {/*        {strings["contact_us"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/not-found"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/not-found"}>*/}
           {/*        {strings["404_page"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*  </ul>*/}
           {/*</li>*/}
           {/*<li>*/}
-          {/*  <Link to={process.env.PUBLIC_URL + "/temp" + "/blog-standard"}>*/}
+          {/*  <Link to={process.env.PUBLIC_URL + "/blog-standard"}>*/}
           {/*    {strings["blog"]}*/}
           {/*    {sidebarMenu ? (*/}
           {/*      <span>*/}
@@ -234,29 +234,29 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
           {/*  </Link>*/}
           {/*  <ul className="submenu">*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/blog-standard"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/blog-standard"}>*/}
           {/*        {strings["blog_standard"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/blog-no-sidebar"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/blog-no-sidebar"}>*/}
           {/*        {strings["blog_no_sidebar"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/blog-right-sidebar"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/blog-right-sidebar"}>*/}
           {/*        {strings["blog_right_sidebar"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*    <li>*/}
-          {/*      <Link to={process.env.PUBLIC_URL + "/temp" + "/blog-details-standard"}>*/}
+          {/*      <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>*/}
           {/*        {strings["blog_details_standard"]}*/}
           {/*      </Link>*/}
           {/*    </li>*/}
           {/*  </ul>*/}
           {/*</li>*/}
           {/*<li>*/}
-          {/*  <Link to={process.env.PUBLIC_URL + "/temp" + "/contact"}>*/}
+          {/*  <Link to={process.env.PUBLIC_URL + "/contact"}>*/}
           {/*    {strings["contact_us"]}*/}
           {/*  </Link>*/}
           {/*</li>*/}

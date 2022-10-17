@@ -33,7 +33,7 @@ const ProductGridListSingle = ({
           className={`product-wrap ${spaceBottomClass ? spaceBottomClass : ""}`}
         >
           <div className="product-img">
-            <Link to={process.env.PUBLIC_URL + "/temp" + "/product/" + product.id}>
+            <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
               <img
                 className="default-img"
                 src={product?.goods_gallery.length ? product?.goods_gallery[0].image : ''}
@@ -63,7 +63,7 @@ const ProductGridListSingle = ({
               {/*</div>*/}
               <div className="pro-same-action pro-cart">
                 {product.size && product.size.length >= 1 ? (
-                  <Link to={`${process.env.PUBLIC_URL + "/temp"}/product/${product.id}`}>
+                  <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
                     Выбрать размер
                   </Link>) : <button
                   onClick={() => addToCart(product, addToast)}
@@ -85,7 +85,7 @@ const ProductGridListSingle = ({
           </div>
           <div className="product-content text-center">
             <h3>
-              <Link to={process.env.PUBLIC_URL + "/temp" + "/product/" + product.id}>
+              <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
                 {product.name}
               </Link>
             </h3>
@@ -107,7 +107,7 @@ const ProductGridListSingle = ({
             <div className="col-xl-4 col-md-5 col-sm-6">
               <div className="product-list-image-wrap">
                 <div className="product-img">
-                  <Link to={process.env.PUBLIC_URL + "/temp" + "/product/" + product.id}>
+                  <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
                     <img
                       className="default-img"
                       src={product?.goods_gallery.length ? product?.goods_gallery[0].image : ''}
@@ -129,7 +129,7 @@ const ProductGridListSingle = ({
             <div className="col-xl-8 col-md-7 col-sm-6">
               <div className="shop-list-content">
                 <h3>
-                  <Link to={process.env.PUBLIC_URL + "/temp" + "/product/" + product.id}>
+                  <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
                     {product.name}
                   </Link>
                 </h3>
@@ -153,7 +153,7 @@ const ProductGridListSingle = ({
                 <div className="shop-list-actions d-flex align-items-center">
                   <div className="shop-list-btn btn-hover">
                     {product.size && product.size.length >= 1 ? (
-                      <Link to={`${process.env.PUBLIC_URL + "/temp"}/product/${product.id}`}>
+                      <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
                         Выбрать размер
                       </Link>) : <button
                       onClick={() => addToCart(product, addToast)}

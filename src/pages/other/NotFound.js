@@ -15,11 +15,11 @@ const NotFound = ({ location }) => {
         <title>NordicWay | Not Found</title>
         <meta
           name="description"
-          content="404 page of flone react minimalist eCommerce template."
+          content="404 page"
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Главная</BreadcrumbsItem>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Главная</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         404
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
@@ -47,7 +47,7 @@ const NotFound = ({ location }) => {
                   {/*    <i className="fa fa-search" />*/}
                   {/*  </button>*/}
                   {/*</form>*/}
-                  <Link to={process.env.PUBLIC_URL + "/temp" + "/"} className="error-btn">
+                  <Link to={process.env.PUBLIC_URL + "/"} className="error-btn">
                     На Главную
                   </Link>
                 </div>

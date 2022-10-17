@@ -19,8 +19,8 @@ const MyAccount = ({ location }) => {
           content="Compare page of flone react minimalist eCommerce template."
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Home</BreadcrumbsItem>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         My Account
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">

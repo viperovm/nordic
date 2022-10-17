@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Logo = ({ imageUrl, logoText, logoClass }) => {
   return (
     <div className={`${logoClass ? logoClass : ""}`}>
-      <Link to={process.env.PUBLIC_URL + "/temp" + "/"}>
+      <Link to={process.env.PUBLIC_URL + "/"}>
         {imageUrl
           ?
           <img alt="" src={process.env.PUBLIC_URL + imageUrl} />

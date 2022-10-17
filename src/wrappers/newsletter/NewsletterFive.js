@@ -18,7 +18,7 @@ const NewsletterFive = ({
         spaceLeftClass ? spaceLeftClass : ""
       }  ${spaceRightClass ? spaceRightClass : ""}`}
       style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL + "/temp" + newsletterBg})`
+        backgroundImage: `url(${process.env.PUBLIC_URL + newsletterBg})`
       }}
     >
       <div className="container-fluid">

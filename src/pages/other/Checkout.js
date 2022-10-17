@@ -1,28 +1,44 @@
 import PropTypes from "prop-types";
 import React, {Fragment, useEffect, useState} from "react";
-import { Link } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import MetaTags from "react-meta-tags";
 import { connect } from "react-redux";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import {setOrder, setOrderData} from "../../redux/actions/goodsActions";
+import {resetStatus, setOrder, setOrderData} from "../../redux/actions/goodsActions";
 import Cookies from "js-cookie";
 
-const Checkout = ({ location, cartItems, order_data, setOrderData, setOrder }) => {
+const Checkout = ({
+                    location,
+                    cartItems,
+                    order_data,
+                    setOrderData,
+                    setOrder,
+                    order_success,
+                    error,
+                    resetStatus,
+                  }) => {
   const { pathname } = location;
   // let cartTotalPrice = 0;
 
+  const history = useHistory()
+
+  useEffect(() => {
+    if(order_success) {
+      history.push(`/success`)
+    }
+  })
+
   const [cartItemsText, setCartItemsText] = useState('')
   const [cartTotalPrice, setCartTotalPrice] = useState(0)
-
-  console.log(Cookies.get('csrftoken'))
+  const [disabled, setDisabled] = useState(false)
 
   const get_cart_text = () => {
     return cartItems?.map(
       item => {
-        setCartItemsText(cartItemsText => `${cartItemsText}\t-${item.name} (${item.selectedProductSize}) x ${item.quantity} - ₽${Number(item.price)*item.quantity}\n`)
+        setCartItemsText(cartItemsText => `${cartItemsText ? cartItemsText : ''}\t-${item.name} (${item.selectedProductSize}) x ${item.quantity} - ₽${Number(item.price)*item.quantity}\n`)
         setCartTotalPrice(cartTotalPrice => cartTotalPrice + Number(item.price)*item.quantity)
       }
     )
@@ -59,12 +75,36 @@ const Checkout = ({ location, cartItems, order_data, setOrderData, setOrder }) =
           content="Checkout page"
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Главная</BreadcrumbsItem>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Главная</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Оформление заказа
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
         <Breadcrumb />
+        {error && (
+          <>
+            <div className="modal-wrapper">
+              <div className="modal-card">
+                <div className="modal-header">
+                  <h2>Ошибка!</h2>
+                </div>
+                <div className="modal-body">
+                  <p>Во время оформления заказа произошла ошибка. Повторите попытку позже.</p>
+                </div>
+                <div className="modal-footer">
+                  <div className="place-order mt-25">
+                    <button
+                      className="btn-hover"
+                      onClick={() => {
+                        resetStatus()
+                      }}
+                    >Разместить заказ</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
         <div className="checkout-area pt-95 pb-100">
           <div className="container">
             {cartItems && cartItems.length >= 1 ? (
@@ -218,9 +258,12 @@ const Checkout = ({ location, cartItems, order_data, setOrderData, setOrder }) =
                     )}
                     <div className="place-order mt-25">
                       <button
-                        disabled={!(order_data?.name && order_data?.address1 && order_data?.phone && order_data?.email)}
+                        disabled={(!(order_data?.name && order_data?.address1 && order_data?.phone && order_data?.email)) || disabled}
                         className="btn-hover"
-                        onClick={() => setOrder(order_data)}
+                        onClick={() => {
+                          setDisabled(true)
+                          setOrder(order_data)
+                        }}
                       >Разместить заказ</button>
                     </div>
                   </div>
@@ -235,7 +278,7 @@ const Checkout = ({ location, cartItems, order_data, setOrderData, setOrder }) =
                     </div>
                     <div className="item-empty-area__text">
                       Нечего оформлять <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/temp" + "/shop"}>
+                      <Link to={process.env.PUBLIC_URL + "/shop"}>
                         В магазин
                       </Link>
                     </div>
@@ -259,9 +302,11 @@ Checkout.propTypes = {
 const mapStateToProps = state => {
   return {
     order_data: state.goods.order_data,
+    order_success: state.goods.order_success,
+    error: state.goods.error,
     cartItems: state.cartData,
     currency: state.currencyData
   };
 };
 
-export default connect(mapStateToProps, {setOrderData, setOrder})(Checkout);
+export default connect(mapStateToProps, {setOrderData, setOrder, resetStatus})(Checkout);

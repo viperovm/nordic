@@ -20,8 +20,8 @@ const BlogDetailsStandard = ({ location }) => {
           content="Blog post page of flone react minimalist eCommerce template."
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Home</BreadcrumbsItem>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Blog Post
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">

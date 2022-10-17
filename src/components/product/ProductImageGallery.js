@@ -6,11 +6,11 @@ import Swiper from "react-id-swiper";
 const ProductImageGallery = ({ product }) => {
   const [gallerySwiper, getGallerySwiper] = useState(null);
   const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
-  const [slidesQty, setSlidesQty] = useState(0);
+  const [slides, setSlides] = useState([]);
 
   useEffect(() => {
     if(product?.goods_gallery?.length) {
-      setSlidesQty(product?.goods_gallery?.length)
+      setSlides(product?.goods_gallery?.map(item => item.image))
     }
   }, [product])
 
@@ -34,10 +34,6 @@ const ProductImageGallery = ({ product }) => {
     loopedSlides: 4,
     loop: true,
     effect: "fade",
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
   };
 
   const thumbnailSwiperParams = {
@@ -66,42 +62,83 @@ const ProductImageGallery = ({ product }) => {
   };
 
   return (
-    <Fragment>
-      <div className="product-large-image-wrapper">
-        <LightgalleryProvider>
-          <Swiper {...gallerySwiperParams}>
-            {product?.goods_gallery?.map((single, key) => {
-                return (
-                  <div key={key}>
-                    <LightgalleryItem
-                      group="any"
-                      src={single?.image}
-                    >
-                      <button>
-                        <i className="pe-7s-expand1"></i>
-                      </button>
-                    </LightgalleryItem>
-                    <div className="single-image">
-                      <img
-                        src={single?.image}
-                        className="img-fluid"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-          </Swiper>
-        </LightgalleryProvider>
-      </div>
-      <div className="product-small-image-wrapper mt-15">
-        <Swiper {...thumbnailSwiperParams}>
-          {product?.goods_gallery?.map((single, key) => {
+  <Fragment>
+    {/*<Fragment>*/}
+    {/*  <div className="product-large-image-wrapper">*/}
+    {/*    <LightgalleryProvider>*/}
+    {/*      <Swiper {...gallerySwiperParams}>*/}
+    {/*        {slides.length && slides.map((single, key) => {*/}
+    {/*          return (*/}
+    {/*            <div key={key}>*/}
+    {/*              <LightgalleryItem*/}
+    {/*                group="any"*/}
+    {/*                src={single}*/}
+    {/*              >*/}
+    {/*                <button>*/}
+    {/*                  <i className="pe-7s-expand1"></i>*/}
+    {/*                </button>*/}
+    {/*              </LightgalleryItem>*/}
+    {/*              <div className="single-image">*/}
+    {/*                <img*/}
+    {/*                  src={single}*/}
+    {/*                  className="img-fluid"*/}
+    {/*                  alt=""*/}
+    {/*                />*/}
+    {/*              </div>*/}
+    {/*            </div>*/}
+    {/*          );*/}
+    {/*        })}*/}
+    {/*      </Swiper>*/}
+    {/*    </LightgalleryProvider>*/}
+    {/*  </div>*/}
+    {/*  <div className="product-small-image-wrapper mt-15">*/}
+    {/*    <Swiper {...thumbnailSwiperParams}>*/}
+    {/*      {slides.length && slides.map((single, key) => {*/}
+    {/*        return (*/}
+    {/*          <div key={key}>*/}
+    {/*            <div className="single-image">*/}
+    {/*              <img*/}
+    {/*                src={single}*/}
+    {/*                className="img-fluid"*/}
+    {/*                alt=""*/}
+    {/*              />*/}
+    {/*            </div>*/}
+    {/*          </div>*/}
+    {/*        );*/}
+    {/*      })}*/}
+    {/*    </Swiper>*/}
+    {/*  </div>*/}
+    {/*</Fragment>*/}
+    <div className="product-large-image-wrapper">
+      {product?.discount || product?.new ? (
+        <div className="product-img-badges">
+          {product?.discount ? (
+            <span className="pink">-{product?.discount}%</span>
+          ) : (
+            ""
+          )}
+          {product?.new ? <span className="purple">New</span> : ""}
+        </div>
+      ) : (
+        ""
+      )}
+      <LightgalleryProvider>
+        <Swiper {...gallerySwiperParams}>
+          {product?.goods_gallery?.length &&
+            product?.goods_gallery?.map((single, key) => {
               return (
                 <div key={key}>
+                  <LightgalleryItem
+                    group="any"
+                    src={process.env.PUBLIC_URL + single?.image}
+                  >
+                    <button>
+                      <i className="pe-7s-expand1"></i>
+                    </button>
+                  </LightgalleryItem>
                   <div className="single-image">
                     <img
-                      src={single.image}
+                      src={process.env.PUBLIC_URL + single?.image}
                       className="img-fluid"
                       alt=""
                     />
@@ -110,8 +147,27 @@ const ProductImageGallery = ({ product }) => {
               );
             })}
         </Swiper>
-      </div>
-    </Fragment>
+      </LightgalleryProvider>
+    </div>
+    <div className="product-small-image-wrapper mt-15">
+      <Swiper {...thumbnailSwiperParams}>
+        {product?.goods_gallery?.length &&
+          product?.goods_gallery?.map((single, key) => {
+            return (
+              <div key={key}>
+                <div className="single-image">
+                  <img
+                    src={process.env.PUBLIC_URL + single?.image}
+                    className="img-fluid"
+                    alt=""
+                  />
+                </div>
+              </div>
+            );
+          })}
+      </Swiper>
+    </div>
+  </Fragment>
   );
 };
 

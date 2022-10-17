@@ -30,7 +30,7 @@ const VideoPopup = ({ spaceBottomClass }) => {
                 eiusmod tempor incididunt.
               </p>
               <div className="link mb-30">
-                <Link to={process.env.PUBLIC_URL + "/temp" + "/about"}>
+                <Link to={process.env.PUBLIC_URL + "/about"}>
                   More About Us
                 </Link>
               </div>

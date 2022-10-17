@@ -37,8 +37,8 @@ const Wishlist = ({
         />
       </MetaTags>
 
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Home</BreadcrumbsItem>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Wishlist
       </BreadcrumbsItem>
 
@@ -83,7 +83,7 @@ const Wishlist = ({
                                 <td className="product-thumbnail">
                                   <Link
                                     to={
-                                      process.env.PUBLIC_URL + "/temp" +
+                                      process.env.PUBLIC_URL +
                                       "/product/" +
                                       wishlistItem.id
                                     }
@@ -91,7 +91,7 @@ const Wishlist = ({
                                     <img
                                       className="img-fluid"
                                       src={
-                                        process.env.PUBLIC_URL + "/temp" +
+                                        process.env.PUBLIC_URL +
                                         wishlistItem.image[0]
                                       }
                                       alt=""
@@ -102,7 +102,7 @@ const Wishlist = ({
                                 <td className="product-name text-center">
                                   <Link
                                     to={
-                                      process.env.PUBLIC_URL + "/temp" +
+                                      process.env.PUBLIC_URL +
                                       "/product/" +
                                       wishlistItem.id
                                     }
@@ -144,7 +144,7 @@ const Wishlist = ({
                                   ) : wishlistItem.variation &&
                                     wishlistItem.variation.length >= 1 ? (
                                     <Link
-                                      to={`${process.env.PUBLIC_URL + "/temp"}/product/${wishlistItem.id}`}
+                                      to={`${process.env.PUBLIC_URL}/product/${wishlistItem.id}`}
                                     >
                                       Select option
                                     </Link>
@@ -205,7 +205,7 @@ const Wishlist = ({
                     <div className="cart-shiping-update-wrapper">
                       <div className="cart-shiping-update">
                         <Link
-                          to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-standard"}
+                          to={process.env.PUBLIC_URL + "/shop-grid-standard"}
                         >
                           Continue Shopping
                         </Link>
@@ -228,7 +228,7 @@ const Wishlist = ({
                     </div>
                     <div className="item-empty-area__text">
                       No items found in wishlist <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/temp" + "/shop-grid-standard"}>
+                      <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
                         Add Items
                       </Link>
                     </div>

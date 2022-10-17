@@ -40,8 +40,8 @@ const Cart = ({
         />
       </MetaTags>
 
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Главная</BreadcrumbsItem>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Главная</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Корзина
       </BreadcrumbsItem>
 
@@ -90,7 +90,7 @@ const Cart = ({
                                 <td className="product-thumbnail">
                                   {cartItem?.goods_gallery?.length > 0 && <Link
                                     to={
-                                      process.env.PUBLIC_URL + "/temp" +
+                                      process.env.PUBLIC_URL +
                                       "/product/" +
                                       cartItem.id
                                     }
@@ -108,7 +108,7 @@ const Cart = ({
                                 <td className="product-name">
                                   <Link
                                     to={
-                                      process.env.PUBLIC_URL + "/temp" +
+                                      process.env.PUBLIC_URL +
                                       "/product/" +
                                       cartItem.id
                                     }
@@ -217,7 +217,7 @@ const Cart = ({
                     <div className="cart-shiping-update-wrapper">
                       <div className="cart-shiping-update">
                         <Link
-                          to={process.env.PUBLIC_URL + "/temp" + "/shop"}
+                          to={process.env.PUBLIC_URL + "/shop"}
                         >
                           Продолжить покупки
                         </Link>
@@ -315,7 +315,7 @@ const Cart = ({
                           {'₽' + cartTotalPrice.toFixed(2)}
                         </span>
                       </h4>
-                      <Link to={process.env.PUBLIC_URL + "/temp" + "/checkout"}>
+                      <Link to={process.env.PUBLIC_URL + "/checkout"}>
                         Оформить
                       </Link>
                     </div>
@@ -331,7 +331,7 @@ const Cart = ({
                     </div>
                     <div className="item-empty-area__text">
                       Корзина пуста <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/temp" + "/shop"}>
+                      <Link to={process.env.PUBLIC_URL + "/shop"}>
                         В магазин
                       </Link>
                     </div>

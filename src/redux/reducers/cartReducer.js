@@ -102,7 +102,7 @@ const cartReducer = (state = initState, action) => {
     return remainingItems(cartItems, product);
   }
 
-  if (action.type === t.DELETE_ALL_FROM_CART) {
+  if (action.type === t.DELETE_ALL_FROM_CART || action.type === t.SET_ORDER_SUCCESS) {
     return cartItems.filter(item => {
       return false;
     });

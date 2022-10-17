@@ -20,8 +20,8 @@ const LoginRegister = ({ location }) => {
           content="Compare page of flone react minimalist eCommerce template."
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Home</BreadcrumbsItem>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Login Register
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
@@ -64,7 +64,7 @@ const LoginRegister = ({ location }) => {
                                 <div className="login-toggle-btn">
                                   <input type="checkbox" />
                                   <label className="ml-10">Remember me</label>
-                                  <Link to={process.env.PUBLIC_URL + "/temp" + "/"}>
+                                  <Link to={process.env.PUBLIC_URL + "/"}>
                                     Forgot Password?
                                   </Link>
                                 </div>

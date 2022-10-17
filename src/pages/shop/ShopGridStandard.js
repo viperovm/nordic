@@ -70,8 +70,8 @@ const ShopGridStandard = ({location, products, all_goods,
                 <meta name="description" content="Shop page of flone react minimalist eCommerce template." />
             </MetaTags>
 
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + '/'}>Главная</BreadcrumbsItem>
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + pathname}>Магазин</BreadcrumbsItem>
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Главная</BreadcrumbsItem>
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Магазин</BreadcrumbsItem>
 
             <LayoutOne headerTop="visible">
                 {/* breadcrumb */}

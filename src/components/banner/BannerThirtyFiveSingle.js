@@ -8,13 +8,13 @@ const BannerThirtyFiveSingle = ({ data, spaceBottomClass }) => {
       <div
         className={`single-banner ${spaceBottomClass ? spaceBottomClass : ""}`}
       >
-        <Link to={process.env.PUBLIC_URL + "/temp" + data.url}>
-          <img src={process.env.PUBLIC_URL + "/temp" + data.image} alt="" />
+        <Link to={process.env.PUBLIC_URL + data.url}>
+          <img src={process.env.PUBLIC_URL + data.image} alt="" />
         </Link>
         <div className="banner-content-5">
           <span>{data.title}</span>
           <h3>{data.subtitle}</h3>
-          <Link to={process.env.PUBLIC_URL + "/temp" + data.url}>
+          <Link to={process.env.PUBLIC_URL + data.url}>
             <i className="fa fa-long-arrow-right" />
           </Link>
         </div>

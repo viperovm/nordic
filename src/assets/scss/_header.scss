@@ -1106,9 +1106,9 @@
     }
     &:hover {
       & > a,
-      span {
-        color: $theme-color;
-      }
+      //span {
+      //  color: $theme-color;
+      //}
 
       .lang-car-dropdown {
         visibility: visible;

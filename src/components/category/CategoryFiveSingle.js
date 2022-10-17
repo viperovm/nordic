@@ -7,7 +7,7 @@ const CategoryFiveSingle = ({ data }) => {
     <div className="col-lg-4 col-md-6 mb-30">
       <div className="category-grid">
         <div className="category-grid__image">
-          <Link to={process.env.PUBLIC_URL + "/temp" + data.url}>
+          <Link to={process.env.PUBLIC_URL + data.url}>
             <img
               src={process.env.PUBLIC_URL + data.image}
               alt=""
@@ -16,7 +16,7 @@ const CategoryFiveSingle = ({ data }) => {
           </Link>
         </div>
         <div className="category-grid__content">
-          <Link to={process.env.PUBLIC_URL + "/temp" + data.url}>{data.title}</Link>
+          <Link to={process.env.PUBLIC_URL + data.url}>{data.title}</Link>
         </div>
       </div>
     </div>

@@ -51,15 +51,15 @@ const IconGroup = ({
       {/*  <div className="account-dropdown">*/}
       {/*    <ul>*/}
       {/*      <li>*/}
-      {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/login-register"}>Login</Link>*/}
+      {/*        <Link to={process.env.PUBLIC_URL + "/login-register"}>Login</Link>*/}
       {/*      </li>*/}
       {/*      <li>*/}
-      {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/login-register"}>*/}
+      {/*        <Link to={process.env.PUBLIC_URL + "/login-register"}>*/}
       {/*          Register*/}
       {/*        </Link>*/}
       {/*      </li>*/}
       {/*      <li>*/}
-      {/*        <Link to={process.env.PUBLIC_URL + "/temp" + "/my-account"}>*/}
+      {/*        <Link to={process.env.PUBLIC_URL + "/my-account"}>*/}
       {/*          my account*/}
       {/*        </Link>*/}
       {/*      </li>*/}
@@ -67,7 +67,7 @@ const IconGroup = ({
       {/*  </div>*/}
       {/*</div>*/}
       {/*<div className="same-style header-compare">*/}
-      {/*  <Link to={process.env.PUBLIC_URL + "/temp" + "/compare"}>*/}
+      {/*  <Link to={process.env.PUBLIC_URL + "/compare"}>*/}
       {/*    <i className="pe-7s-shuffle" />*/}
       {/*    <span className="count-style">*/}
       {/*      {compareData && compareData.length ? compareData.length : 0}*/}
@@ -75,7 +75,7 @@ const IconGroup = ({
       {/*  </Link>*/}
       {/*</div>*/}
       {/*<div className="same-style header-wishlist">*/}
-      {/*  <Link to={process.env.PUBLIC_URL + "/temp" + "/wishlist"}>*/}
+      {/*  <Link to={process.env.PUBLIC_URL + "/wishlist"}>*/}
       {/*    <i className="pe-7s-like" />*/}
       {/*    <span className="count-style">*/}
       {/*      {wishlistData && wishlistData.length ? wishlistData.length : 0}*/}
@@ -97,7 +97,7 @@ const IconGroup = ({
         />
       </div>
       <div className="same-style cart-wrap d-block d-lg-none">
-        <Link className="icon-cart" to={process.env.PUBLIC_URL + "/temp" + "/cart"}>
+        <Link className="icon-cart" to={process.env.PUBLIC_URL + "/cart"}>
           <i className="pe-7s-shopbag" />
           <span className="count-style">
             {cartData && cartData.length ? cartData.length : 0}

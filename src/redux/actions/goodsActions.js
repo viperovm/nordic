@@ -90,22 +90,18 @@ export const setOrder = (data) => async dispatch => {
     }
   };
 
-  console.log(Cookies.get('csrftoken'))
-
   const body = JSON.stringify(data)
 
   try {
-    const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/orders/`, body, config);
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/orders/`, body, config);
 
-    console.log(res)
 
     dispatch({
       type: t.SET_ORDER_SUCCESS,
-      payload: res.data
     })
   } catch (err) {
     dispatch({
-      type: t.SET_ORDER_FAIL
+      type: t.SET_ORDER_FAIL,
     })
   }
 }
@@ -117,5 +113,12 @@ export const setOrderData = (key, data) => dispatch => {
   dispatch({
     type: t.SET_ORDER_DATA,
     payload: pl
+  })
+}
+
+export const resetStatus = () => dispatch => {
+
+  dispatch({
+    type: t.RESET_STATUS,
   })
 }

@@ -34,7 +34,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
               return (
                 <li className="single-shopping-cart" key={key}>
                   {single?.goods_gallery?.length > 0 && <div className="shopping-cart-img">
-                    <Link to={process.env.PUBLIC_URL + "/temp" + "/product/" + single.id}>
+                    <Link to={process.env.PUBLIC_URL + "/product/" + single.id}>
                       <img
                         alt=""
                         src={single?.goods_gallery[0].image}
@@ -45,7 +45,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                   <div className="shopping-cart-title">
                     <h4>
                       <Link
-                        to={process.env.PUBLIC_URL + "/temp" + "/product/" + single.id}
+                        to={process.env.PUBLIC_URL + "/product/" + single.id}
                       >
                         {" "}
                         {single.name}{" "}
@@ -80,12 +80,12 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
             </h4>
           </div>
           <div className="shopping-cart-btn btn-hover text-center">
-            <Link className="default-btn" to={process.env.PUBLIC_URL + "/temp" + "/cart"}>
+            <Link className="default-btn" to={process.env.PUBLIC_URL + "/cart"}>
               Посмотреть корзину
             </Link>
             <Link
               className="default-btn"
-              to={process.env.PUBLIC_URL + "/temp" + "/checkout"}
+              to={process.env.PUBLIC_URL + "/checkout"}
             >
               Оформить
             </Link>

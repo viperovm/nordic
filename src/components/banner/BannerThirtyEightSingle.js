@@ -8,8 +8,8 @@ const BannerThirtyEightSingle = ({ data, spaceBottomClass }) => {
       <div
         className={`single-banner ${spaceBottomClass ? spaceBottomClass : ""}`}
       >
-        <Link to={process.env.PUBLIC_URL + "/temp" + data.link}>
-          <img src={process.env.PUBLIC_URL + "/temp" + data.image} alt="" />
+        <Link to={process.env.PUBLIC_URL + data.link}>
+          <img src={process.env.PUBLIC_URL + data.image} alt="" />
         </Link>
       </div>
     </div>

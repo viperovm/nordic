@@ -24,7 +24,7 @@ const MedicalContact = () => {
                 <div className="medical-shape-img">
                   <img
                     src={
-                      process.env.PUBLIC_URL + "/temp" +
+                      process.env.PUBLIC_URL +
                       "/assets/img/icon-img/medical-contact-shape.png"
                     }
                     alt=""
@@ -36,7 +36,7 @@ const MedicalContact = () => {
                   <div className="medical-contact-img">
                     <img
                       src={
-                        process.env.PUBLIC_URL + "/temp" +
+                        process.env.PUBLIC_URL +
                         "/assets/img/icon-img/medical-contact.png"
                       }
                       alt=""

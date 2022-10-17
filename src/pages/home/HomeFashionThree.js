@@ -53,7 +53,7 @@ const HomeFashionThree = () => {
               <div className="slider-btn btn-hover mt-40">
                 <Link
                   className="animated btn-home"
-                  to={process.env.PUBLIC_URL + "/temp" + "/shop"}
+                  to={process.env.PUBLIC_URL + "/shop"}
                 >
                   В МАГАЗИН
                 </Link>

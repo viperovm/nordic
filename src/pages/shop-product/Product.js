@@ -32,9 +32,9 @@ const Product = ({ location, product, getOneGoods, ...props }) => {
         />
       </MetaTags>
 
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Главная</BreadcrumbsItem>
-      {/*<BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/shop"}>Магазин</BreadcrumbsItem>*/}
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/shop"}>
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Главная</BreadcrumbsItem>
+      {/*<BreadcrumbsItem to={process.env.PUBLIC_URL + "/shop"}>Магазин</BreadcrumbsItem>*/}
+      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/shop"}>
         {product?.name}
       </BreadcrumbsItem>
 

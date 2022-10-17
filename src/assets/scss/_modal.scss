@@ -1,0 +1,35 @@
+.modal-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-card {
+  min-width: 300px;
+  min-height: 100px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  width: 100%;
+  flex: none;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-body {
+  flex: 1;
+  padding: 30px 0;
+}
+
+.modal-footer {
+  width: 100%;
+  flex: none;
+  display: flex;
+  justify-content: center;
+}

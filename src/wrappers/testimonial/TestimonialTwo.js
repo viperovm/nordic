@@ -32,7 +32,7 @@ const TestimonialTwo = ({
         bgColorClass ? bgColorClass : ""
       } `}
       style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL + "/temp" + backgroundImage})`
+        backgroundImage: `url(${process.env.PUBLIC_URL + backgroundImage})`
       }}
     >
       <div className="container">

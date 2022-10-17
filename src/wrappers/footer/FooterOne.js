@@ -69,20 +69,20 @@ const FooterOne = ({
           {/*    <div className="footer-list">*/}
           {/*      <ul>*/}
           {/*        <li>*/}
-          {/*          <Link to={process.env.PUBLIC_URL + "/temp" + "/about"}>About us</Link>*/}
+          {/*          <Link to={process.env.PUBLIC_URL + "/about"}>About us</Link>*/}
           {/*        </li>*/}
           {/*        <li>*/}
-          {/*          <Link to={process.env.PUBLIC_URL + "/temp" + "#/"}>*/}
+          {/*          <Link to={process.env.PUBLIC_URL + "#/"}>*/}
           {/*            Store location*/}
           {/*          </Link>*/}
           {/*        </li>*/}
           {/*        <li>*/}
-          {/*          <Link to={process.env.PUBLIC_URL + "/temp" + "/contact"}>*/}
+          {/*          <Link to={process.env.PUBLIC_URL + "/contact"}>*/}
           {/*            Contact*/}
           {/*          </Link>*/}
           {/*        </li>*/}
           {/*        <li>*/}
-          {/*          <Link to={process.env.PUBLIC_URL + "/temp" + "#/"}>*/}
+          {/*          <Link to={process.env.PUBLIC_URL + "#/"}>*/}
           {/*            Orders tracking*/}
           {/*          </Link>*/}
           {/*        </li>*/}
@@ -108,18 +108,18 @@ const FooterOne = ({
           {/*    <div className="footer-list">*/}
           {/*      <ul>*/}
           {/*        <li>*/}
-          {/*          <Link to={process.env.PUBLIC_URL + "/temp" + "#/"}>Returns</Link>*/}
+          {/*          <Link to={process.env.PUBLIC_URL + "#/"}>Returns</Link>*/}
           {/*        </li>*/}
           {/*        <li>*/}
-          {/*          <Link to={process.env.PUBLIC_URL + "/temp" + "#/"}>*/}
+          {/*          <Link to={process.env.PUBLIC_URL + "#/"}>*/}
           {/*            Support Policy*/}
           {/*          </Link>*/}
           {/*        </li>*/}
           {/*        <li>*/}
-          {/*          <Link to={process.env.PUBLIC_URL + "/temp" + "#/"}>Size guide</Link>*/}
+          {/*          <Link to={process.env.PUBLIC_URL + "#/"}>Size guide</Link>*/}
           {/*        </li>*/}
           {/*        <li>*/}
-          {/*          <Link to={process.env.PUBLIC_URL + "/temp" + "#/"}>FAQs</Link>*/}
+          {/*          <Link to={process.env.PUBLIC_URL + "#/"}>FAQs</Link>*/}
           {/*        </li>*/}
           {/*      </ul>*/}
           {/*    </div>*/}

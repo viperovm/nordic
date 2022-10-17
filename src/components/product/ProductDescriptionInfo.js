@@ -123,7 +123,7 @@ const ProductDescriptionInfo = ({
           <ul>
             <li>
               {product?.category?.name}
-              {/*<Link to={process.env.PUBLIC_URL + "/temp" + "/shop"}>*/}
+              {/*<Link to={process.env.PUBLIC_URL + "/shop"}>*/}
               {/*  */}
               {/*</Link>*/}
             </li>

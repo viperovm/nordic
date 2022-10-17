@@ -208,14 +208,14 @@ const Checkout = ({ location, cartItems, order_data, setOrderData, setOrder }) =
                       </div>
                       <div className="payment-method"></div>
                     </div>
-                    {!(order_data.name && order_data.address1 && order_data.phone && order_data.email) && (
+                    {!(order_data?.name && order_data?.address1 && order_data?.phone && order_data?.email) && (
                       <div className="place-order mt-25 text-center">
                         <p>Для размещения заказа, заполните все необходимые поля</p>
                       </div>
                     )}
                     <div className="place-order mt-25">
                       <button
-                        disabled={!(order_data.name && order_data.address1 && order_data.phone && order_data.email)}
+                        disabled={!(order_data?.name && order_data?.address1 && order_data?.phone && order_data?.email)}
                         className="btn-hover"
                         onClick={() => setOrder(order_data)}
                       >Разместить заказ</button>

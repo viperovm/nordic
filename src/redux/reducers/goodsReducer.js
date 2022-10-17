@@ -4,12 +4,25 @@ const initialState = {
   all_goods: [],
   all_categories: [],
   one_goods: {},
+  order_data: {},
 };
 
 export default function(state= initialState, action) {
   const {type, payload} = action;
 
   switch(type) {
+    case t.SET_ORDER_DATA:
+      return {
+        ...state,
+        order_data: {...state.order_data, [payload.key]: payload.data}
+      }
+
+    case t.DELETE_ALL_FROM_CART:
+      return {
+        ...state,
+        order_data: {}
+      }
+
     case t.GET_ALL_GOODS_SUCCESS:
       return {
         ...state,

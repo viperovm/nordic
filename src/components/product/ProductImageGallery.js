@@ -6,6 +6,13 @@ import Swiper from "react-id-swiper";
 const ProductImageGallery = ({ product }) => {
   const [gallerySwiper, getGallerySwiper] = useState(null);
   const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
+  const [slidesQty, setSlidesQty] = useState(0);
+
+  useEffect(() => {
+    if(product?.goods_gallery?.length) {
+      setSlidesQty(product?.goods_gallery?.length)
+    }
+  }, [product])
 
   // effect for swiper slider synchronize
   useEffect(() => {
@@ -26,7 +33,11 @@ const ProductImageGallery = ({ product }) => {
     spaceBetween: 10,
     loopedSlides: 4,
     loop: true,
-    effect: "fade"
+    effect: "fade",
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
   };
 
   const thumbnailSwiperParams = {

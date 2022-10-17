@@ -1711,6 +1711,13 @@ textarea:focus {
   }
 }
 
+button[disabled] {
+  //background-color: #f6f6f6!important;
+  //color: #000000!important;
+  pointer-events: none;
+  //text-decoration: line-through;
+}
+
 .btn-hover {
   a,
   button {

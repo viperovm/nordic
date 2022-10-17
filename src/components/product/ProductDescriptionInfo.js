@@ -100,6 +100,7 @@ const ProductDescriptionInfo = ({
         </div>
         <div className="pro-details-cart btn-hover">
           <button
+            disabled={!selectedProductSize}
             onClick={() =>
               addToCart(
                 product,

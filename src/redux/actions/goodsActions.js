@@ -78,3 +78,39 @@ export const getAllCategories = () => async dispatch => {
     })
   }
 }
+
+export const setOrder = (data) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  };
+
+  const body = JSON.stringify(data)
+
+  try {
+    const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/orders/`, body, config);
+
+    console.log(res)
+
+    dispatch({
+      type: t.SET_ORDER_SUCCESS,
+      payload: res.data
+    })
+  } catch (err) {
+    dispatch({
+      type: t.SET_ORDER_FAIL
+    })
+  }
+}
+
+export const setOrderData = (key, data) => dispatch => {
+
+  const pl = {key: key, data: data}
+
+  dispatch({
+    type: t.SET_ORDER_DATA,
+    payload: pl
+  })
+}

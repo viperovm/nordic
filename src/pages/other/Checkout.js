@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import MetaTags from "react-meta-tags";
 import { connect } from "react-redux";
@@ -7,12 +7,45 @@ import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import {setOrder, setOrderData} from "../../redux/actions/goodsActions";
 
-const Checkout = ({ location, cartItems, currency }) => {
+const Checkout = ({ location, cartItems, order_data, setOrderData, setOrder }) => {
   const { pathname } = location;
-  let cartTotalPrice = 0;
+  // let cartTotalPrice = 0;
+
+  const [cartItemsText, setCartItemsText] = useState('')
+  const [cartTotalPrice, setCartTotalPrice] = useState(0)
+
+  const get_cart_text = () => {
+    return cartItems?.map(
+      item => {
+        setCartItemsText(cartItemsText => `${cartItemsText}\t-${item.name} (${item.selectedProductSize}) x ${item.quantity} - ₽${Number(item.price)*item.quantity}\n`)
+        setCartTotalPrice(cartTotalPrice => cartTotalPrice + Number(item.price)*item.quantity)
+      }
+    )
+  }
+
+  useEffect(() => {
+    if(cartItems) {
+      get_cart_text()
+    }
+  }, [cartItems])
+
+  useEffect(() => {
+    if(cartItemsText || cartTotalPrice) {
+      setOrderData('orders', `\n${cartItemsText} \n\tИтого: ₽${cartTotalPrice}\n`)
+    }
+  }, [cartItemsText, cartTotalPrice])
 
   console.log(cartItems)
+  console.log(order_data)
+  console.log('\n' + cartItemsText + '\n\tИтого: ₽' + cartTotalPrice + '\n')
+
+  const setCartData = (e) => {
+    console.log(e.target.name)
+    console.log(e.target.value)
+    setOrderData(e.target.name, e.target.value)
+  }
 
   return (
     <Fragment>
@@ -20,7 +53,7 @@ const Checkout = ({ location, cartItems, currency }) => {
         <title>NordicWay | Checkout</title>
         <meta
           name="description"
-          content="Checkout page of flone react minimalist eCommerce template."
+          content="Checkout page"
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/temp" + "/"}>Главная</BreadcrumbsItem>
@@ -28,7 +61,6 @@ const Checkout = ({ location, cartItems, currency }) => {
         Оформление заказа
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
-        {/* breadcrumb */}
         <Breadcrumb />
         <div className="checkout-area pt-95 pb-100">
           <div className="container">
@@ -38,16 +70,10 @@ const Checkout = ({ location, cartItems, currency }) => {
                   <div className="billing-info-wrap">
                     <h3>Данные покупателя</h3>
                     <div className="row">
-                      <div className="col-lg-6 col-md-6">
+                      <div className="col-lg-12">
                         <div className="billing-info mb-20">
-                          <label>Имя</label>
-                          <input type="text" />
-                        </div>
-                      </div>
-                      <div className="col-lg-6 col-md-6">
-                        <div className="billing-info mb-20">
-                          <label>Фамилия</label>
-                          <input type="text" />
+                          <label>Фамилия Имя Отчество*</label>
+                          <input type="text" name='name' onChange={e => setCartData(e)} value={order_data?.name}/>
                         </div>
                       </div>
                       {/*<div className="col-lg-12">*/}
@@ -58,8 +84,8 @@ const Checkout = ({ location, cartItems, currency }) => {
                       {/*</div>*/}
                       <div className="col-lg-12">
                         <div className="billing-info mb-20">
-                          <label>Город</label>
-                          <input type="text" />
+                          <label>Город*</label>
+                          <input type="text" name='city' onChange={e => setCartData(e)} value={order_data?.city}/>
                         </div>
                         {/*<div className="billing-select mb-20">*/}
                         {/*  <label>Город</label>*/}
@@ -78,12 +104,11 @@ const Checkout = ({ location, cartItems, currency }) => {
                           <label>Адрес</label>
                           <input
                             className="mb-10"
-                            placeholder="Улица, дом, квартира"
-                            type="text"
-                          />
+                            placeholder="Улица, дом, квартира*"
+                            type="text" name='address1' onChange={e => setCartData(e)} value={order_data?.address1}/>
                           <input
                             placeholder="Подъезд, этаж, домофон"
-                            type="text"
+                            type="text" name='address2' onChange={e => setCartData(e)} value={order_data?.address2}
                           />
                         </div>
                       </div>
@@ -107,14 +132,14 @@ const Checkout = ({ location, cartItems, currency }) => {
                       {/*</div>*/}
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
-                          <label>Телефон</label>
-                          <input type="text" />
+                          <label>Телефон*</label>
+                          <input type="text" name='phone' onChange={e => setCartData(e)} value={order_data?.phone}/>
                         </div>
                       </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="billing-info mb-20">
-                          <label>Email</label>
-                          <input type="text" />
+                          <label>Email*</label>
+                          <input type="text" name='email' onChange={e => setCartData(e)} value={order_data?.email}/>
                         </div>
                       </div>
                     </div>
@@ -124,8 +149,10 @@ const Checkout = ({ location, cartItems, currency }) => {
                       <div className="additional-info">
                         <label>Примечания к заказу</label>
                         <textarea
+                          onChange={e => setCartData(e)}
+                          value={order_data?.extra}
                           placeholder="Здесь вы можете написать особые пожелания к заказу."
-                          name="message"
+                          name="extra"
                           defaultValue={""}
                         />
                       </div>
@@ -147,38 +174,16 @@ const Checkout = ({ location, cartItems, currency }) => {
                         <div className="your-order-middle">
                           <ul>
                             {cartItems.map((cartItem, key) => {
-                              const discountedPrice = getDiscountPrice(
-                                cartItem.price,
-                                cartItem.discount
-                              );
-                              const finalProductPrice = (
-                                cartItem.price * currency.currencyRate
-                              ).toFixed(2);
-                              const finalDiscountedPrice = (
-                                discountedPrice * currency.currencyRate
-                              ).toFixed(2);
-
-                              discountedPrice != null
-                                ? (cartTotalPrice +=
-                                    finalDiscountedPrice * cartItem.quantity)
-                                : (cartTotalPrice +=
-                                    finalProductPrice * cartItem.quantity);
                               return (
                                 <li key={key}>
                                   <span className="order-middle-left">
                                     {`${cartItem.name} (${cartItem.selectedProductSize}) X ${cartItem.quantity}`}
                                   </span>{" "}
                                   <span className="order-price">
-                                    {discountedPrice !== null
-                                      ? '₽' +
-                                        (
-                                          finalDiscountedPrice *
-                                          cartItem.quantity
-                                        ).toFixed(2)
-                                      : '₽' +
-                                        (
-                                          finalProductPrice * cartItem.quantity
-                                        ).toFixed(2)}
+                                    {'₽' +
+                                      (
+                                        cartItem.price * cartItem.quantity
+                                      ).toFixed(2)}
                                   </span>
                                 </li>
                               );
@@ -203,8 +208,17 @@ const Checkout = ({ location, cartItems, currency }) => {
                       </div>
                       <div className="payment-method"></div>
                     </div>
+                    {!(order_data.name && order_data.address1 && order_data.phone && order_data.email) && (
+                      <div className="place-order mt-25 text-center">
+                        <p>Для размещения заказа, заполните все необходимые поля</p>
+                      </div>
+                    )}
                     <div className="place-order mt-25">
-                      <button className="btn-hover">Разместить заказ</button>
+                      <button
+                        disabled={!(order_data.name && order_data.address1 && order_data.phone && order_data.email)}
+                        className="btn-hover"
+                        onClick={() => setOrder(order_data)}
+                      >Разместить заказ</button>
                     </div>
                   </div>
                 </div>
@@ -241,9 +255,10 @@ Checkout.propTypes = {
 
 const mapStateToProps = state => {
   return {
+    order_data: state.goods.order_data,
     cartItems: state.cartData,
     currency: state.currencyData
   };
 };
 
-export default connect(mapStateToProps)(Checkout);
+export default connect(mapStateToProps, {setOrderData, setOrder})(Checkout);

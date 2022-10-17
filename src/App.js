@@ -146,75 +146,75 @@ const App = (props) => {
                     <Product {...routeProps} key={routeProps.match.params.id} />
                   )}
                 />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/product-tab-left/:id"}
-                  component={ProductTabLeft}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/product-tab-right/:id"}
-                  component={ProductTabRight}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/product-sticky/:id"}
-                  component={ProductSticky}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/product-slider/:id"}
-                  component={ProductSlider}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/product-fixed-image/:id"}
-                  component={ProductFixedImage}
-                />
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/product-tab-left/:id"}*/}
+                {/*  component={ProductTabLeft}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/product-tab-right/:id"}*/}
+                {/*  component={ProductTabRight}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/product-sticky/:id"}*/}
+                {/*  component={ProductSticky}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/product-slider/:id"}*/}
+                {/*  component={ProductSlider}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/product-fixed-image/:id"}*/}
+                {/*  component={ProductFixedImage}*/}
+                {/*/>*/}
 
                 {/* Blog pages */}
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/blog-standard"}
-                  component={BlogStandard}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/blog-no-sidebar"}
-                  component={BlogNoSidebar}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/blog-right-sidebar"}
-                  component={BlogRightSidebar}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/blog-details-standard"}
-                  component={BlogDetailsStandard}
-                />
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/blog-standard"}*/}
+                {/*  component={BlogStandard}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/blog-no-sidebar"}*/}
+                {/*  component={BlogNoSidebar}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/blog-right-sidebar"}*/}
+                {/*  component={BlogRightSidebar}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/blog-details-standard"}*/}
+                {/*  component={BlogDetailsStandard}*/}
+                {/*/>*/}
 
                 {/* Other pages */}
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/about"}
-                  component={About}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/contact"}
-                  component={Contact}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/my-account"}
-                  component={MyAccount}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/login-register"}
-                  component={LoginRegister}
-                />
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/about"}*/}
+                {/*  component={About}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/contact"}*/}
+                {/*  component={Contact}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/my-account"}*/}
+                {/*  component={MyAccount}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/login-register"}*/}
+                {/*  component={LoginRegister}*/}
+                {/*/>*/}
 
                 <Route
                   path={process.env.PUBLIC_URL + "/temp" + "/cart"}
                   component={Cart}
                 />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/wishlist"}
-                  component={Wishlist}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/temp" + "/compare"}
-                  component={Compare}
-                />
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/wishlist"}*/}
+                {/*  component={Wishlist}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  path={process.env.PUBLIC_URL + "/temp" + "/compare"}*/}
+                {/*  component={Compare}*/}
+                {/*/>*/}
                 <Route
                   path={process.env.PUBLIC_URL + "/temp" + "/checkout"}
                   component={Checkout}

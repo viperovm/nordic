@@ -85,7 +85,8 @@ export const setOrder = (data) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      'Accept': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken')
     }
   };
 

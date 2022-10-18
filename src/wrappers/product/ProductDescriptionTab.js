@@ -18,6 +18,9 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
               <Nav.Item>
                 <Nav.Link eventKey="productDescription">Описание</Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="sizeTable">Таблица размеров</Nav.Link>
+              </Nav.Item>
               {/*<Nav.Item>*/}
               {/*  <Nav.Link eventKey="productReviews">Reviews(2)</Nav.Link>*/}
               {/*</Nav.Item>*/}
@@ -44,6 +47,55 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
               {/*</Tab.Pane>*/}
               <Tab.Pane eventKey="productDescription">
                 {productFullDesc}
+              </Tab.Pane>
+              <Tab.Pane eventKey="sizeTable">
+                <div className="contact-info-wrap">
+
+                  <h3>Таблица размеров</h3>
+
+                  <table>
+
+                    <tr>
+                      <th>Размер:</th>
+                      <th>Рост:</th>
+                      <th>Российский размер:</th>
+                    </tr>
+                    <tr>
+                      <td>XXS</td>
+                      <td>150 см - 162 см</td>
+                      <td>42-44</td>
+                    </tr>
+                    <tr>
+                      <td>XS</td>
+                      <td>162 см - 172 см</td>
+                      <td>44-46</td>
+                    </tr>
+                    <tr>
+                      <td>S</td>
+                      <td>170 см - 177 см</td>
+                      <td>46-48</td>
+                    </tr>
+                    <tr>
+                      <td>M</td>
+                      <td>176 см - 185 см</td>
+                      <td>48-52</td>
+                    </tr>
+                    <tr>
+                      <td>L</td>
+                      <td>186 см - 195 см</td>
+                      <td>50-54</td>
+                    </tr>
+                    <tr>
+                      <td>XL</td>
+                      <td>195 см - 200 см</td>
+                      <td>52-56</td>
+                    </tr>
+                  </table>
+                  <p>Мы рекомендуем выбирать размер, исходя из роста и российского размера одежды.</p>
+                  <p>Если у вас остались какие-то вопросы, не стесняйтесь обращаться в наш магазин и наши специалисты с удовольствием Вам помогут!</p>
+                  <h4>Удачных покупок!</h4>
+
+                </div>
               </Tab.Pane>
               {/*<Tab.Pane eventKey="productReviews">*/}
               {/*  <div className="row">*/}

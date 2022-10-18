@@ -5,6 +5,7 @@ import {useToasts} from "react-toast-notifications";
 import {getDiscountPrice} from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
 import ProductModal from "./ProductModal";
+import {getProperPrice} from "../../helpers/price";
 
 const ProductGridListSingle = ({
                                  product,
@@ -93,12 +94,7 @@ const ProductGridListSingle = ({
                 <Rating ratingValue={product.rating}/>
               </div>) : ("")}
             <div className="product-price">
-              {discountedPrice !== null ? (<Fragment>
-                  <span>₽{product?.price}</span>{" "}
-                  <span className="old">
-                    ₽{product?.price}
-                  </span>
-                </Fragment>) : (<span>₽{product?.price}</span>)}
+              <span>{getProperPrice(product?.price)}</span>
             </div>
           </div>
         </div>

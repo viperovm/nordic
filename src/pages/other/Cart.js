@@ -15,6 +15,7 @@ import {
 } from "../../redux/actions/cartActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import {getProperPrice} from "../../helpers/price";
 
 const Cart = ({
   location,
@@ -29,6 +30,8 @@ const Cart = ({
   const { addToast } = useToasts();
   const { pathname } = location;
   let cartTotalPrice = 0;
+
+  console.log(parseFloat(cartTotalPrice.toFixed(2)).toLocaleString('ru-RU'))
 
   return (
     <Fragment>
@@ -75,10 +78,10 @@ const Cart = ({
                             );
                             const finalProductPrice = (
                               cartItem.price * currency.currencyRate
-                            ).toFixed(2);
+                            );
                             const finalDiscountedPrice = (
                               discountedPrice * currency.currencyRate
-                            ).toFixed(2);
+                            );
 
                             discountedPrice != null
                               ? (cartTotalPrice +=
@@ -127,18 +130,15 @@ const Cart = ({
                                   {discountedPrice !== null ? (
                                     <Fragment>
                                       <span className="amount old">
-                                        {'₽' +
-                                          finalProductPrice}
+                                        {getProperPrice(finalProductPrice)}
                                       </span>
                                       <span className="amount">
-                                        {'₽' +
-                                          finalDiscountedPrice}
+                                        {getProperPrice(finalDiscountedPrice)}
                                       </span>
                                     </Fragment>
                                   ) : (
                                     <span className="amount">
-                                      {'₽' +
-                                        finalProductPrice}
+                                      {getProperPrice(finalProductPrice)}
                                     </span>
                                   )}
                                 </td>
@@ -185,14 +185,9 @@ const Cart = ({
                                 </td>
                                 <td className="product-subtotal">
                                   {discountedPrice !== null
-                                    ? '₽' +
-                                      (
-                                        finalDiscountedPrice * cartItem.quantity
-                                      ).toFixed(2)
-                                    : '₽' +
-                                      (
-                                        finalProductPrice * cartItem.quantity
-                                      ).toFixed(2)}
+                                    ? getProperPrice(finalDiscountedPrice * cartItem.quantity)
+                                    : getProperPrice(finalProductPrice * cartItem.quantity)
+                                  }
                                 </td>
 
                                 <td className="product-remove">
@@ -312,7 +307,7 @@ const Cart = ({
                       <h4 className="grand-totall-title">
                         Итого{" "}
                         <span>
-                          {'₽' + cartTotalPrice.toFixed(2)}
+                          {getProperPrice(cartTotalPrice)}
                         </span>
                       </h4>
                       <Link to={process.env.PUBLIC_URL + "/checkout"}>

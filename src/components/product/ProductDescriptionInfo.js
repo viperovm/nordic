@@ -7,6 +7,7 @@ import { addToCart } from "../../redux/actions/cartActions";
 import { addToWishlist } from "../../redux/actions/wishlistActions";
 import { addToCompare } from "../../redux/actions/compareActions";
 import Rating from "./sub-components/ProductRating";
+import {getProperPrice} from "../../helpers/price";
 
 const ProductDescriptionInfo = ({
   product,
@@ -26,6 +27,8 @@ const ProductDescriptionInfo = ({
     product?.size?.length ? product?.size[0].size : ""
   );
 
+  console.log(typeof product?.price)
+
   const [quantityCount, setQuantityCount] = useState(1);
 
   const productCartQty = getProductCartQuantity(
@@ -39,7 +42,7 @@ const ProductDescriptionInfo = ({
     <div className="product-details-content ml-70">
       <h2>{product?.name}</h2>
       <div className="product-details-price">
-        <span>₽{product?.price} </span>
+        <span>{getProperPrice(product?.price)} </span>
       </div>
 
       <div className="pro-details-size-color">

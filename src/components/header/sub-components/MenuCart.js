@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../../helpers/product";
+import {getProperPrice} from "../../../helpers/price";
 
 const MenuCart = ({ cartData, currency, deleteFromCart }) => {
 
@@ -22,10 +23,10 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
               );
               const finalProductPrice = (
                 single.price * currency.currencyRate
-              ).toFixed(2);
+              );
               const finalDiscountedPrice = (
                 discountedPrice * currency.currencyRate
-              ).toFixed(2);
+              );
 
               discountedPrice != null
                 ? (cartTotalPrice += finalDiscountedPrice * single.quantity)
@@ -54,8 +55,8 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                     <h6>Кол-во: {single.quantity}</h6>
                     <span>
                       {discountedPrice !== null
-                        ? '₽' + finalDiscountedPrice
-                        : '₽' + finalProductPrice}
+                        ? getProperPrice(finalDiscountedPrice)
+                        : getProperPrice(finalProductPrice)}
                     </span>
                     {single.selectedProductSize &&
                       <div className="cart-item-variation">
@@ -75,7 +76,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
             <h4>
               Итого :{" "}
               <span className="shop-total">
-                {'₽' + cartTotalPrice.toFixed(2)}
+                {getProperPrice(cartTotalPrice)}
               </span>
             </h4>
           </div>

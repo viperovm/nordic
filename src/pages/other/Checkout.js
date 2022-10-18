@@ -9,6 +9,7 @@ import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import {resetStatus, setOrder, setOrderData} from "../../redux/actions/goodsActions";
 import Cookies from "js-cookie";
+import {getProperPrice} from "../../helpers/price";
 
 const Checkout = ({
                     location,
@@ -223,10 +224,7 @@ const Checkout = ({
                                     {`${cartItem.name} (${cartItem.selectedProductSize}) X ${cartItem.quantity}`}
                                   </span>{" "}
                                   <span className="order-price">
-                                    {'₽' +
-                                      (
-                                        cartItem.price * cartItem.quantity
-                                      ).toFixed(2)}
+                                    {getProperPrice(cartItem.price * cartItem.quantity)}
                                   </span>
                                 </li>
                               );
@@ -243,8 +241,7 @@ const Checkout = ({
                           <ul>
                             <li className="order-total">Итого</li>
                             <li>
-                              {'₽' +
-                                cartTotalPrice.toFixed(2)}
+                              {getProperPrice(cartTotalPrice)}
                             </li>
                           </ul>
                         </div>

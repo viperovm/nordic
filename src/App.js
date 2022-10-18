@@ -50,6 +50,8 @@ const BlogDetailsStandard = lazy(() =>
 // other pages
 const About = lazy(() => import("./pages/other/About"));
 const Contact = lazy(() => import("./pages/other/Contact"));
+const Faq = lazy(() => import("./pages/other/Faq"));
+const Size = lazy(() => import("./pages/other/Size"));
 const MyAccount = lazy(() => import("./pages/other/MyAccount"));
 const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
 
@@ -191,10 +193,18 @@ const App = (props) => {
                 {/*  path={process.env.PUBLIC_URL + "/about"}*/}
                 {/*  component={About}*/}
                 {/*/>*/}
-                {/*<Route*/}
-                {/*  path={process.env.PUBLIC_URL + "/contact"}*/}
-                {/*  component={Contact}*/}
-                {/*/>*/}
+                <Route
+                  path={process.env.PUBLIC_URL + "/contact"}
+                  component={Contact}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/faq"}
+                  component={Faq}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/size"}
+                  component={Size}
+                />
                 {/*<Route*/}
                 {/*  path={process.env.PUBLIC_URL + "/my-account"}*/}
                 {/*  component={MyAccount}*/}

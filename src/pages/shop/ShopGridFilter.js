@@ -50,7 +50,7 @@ const ShopGridFilter = ({location, products}) => {
         <Fragment>
             <MetaTags>
                 <title>NordicWay | Shop Page</title>
-                <meta name="description" content="Shop page of flone react minimalist eCommerce template." />
+                <meta name="description" content="Shop page of NordicWay." />
             </MetaTags>
 
             <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>

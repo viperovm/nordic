@@ -13,6 +13,26 @@
   border: 1px solid #333;
 }
 
+.nordic-text {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.contact-info-wrap table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.contact-info-wrap td,
+.contact-info-wrap th {
+  padding: 10px;
+}
+
+.contact-info-wrap tr:not(:last-child),
+.contact-info-wrap tr:not(:first-child) {
+  border-bottom: 1px solid #ebebeb;
+}
+
 //.image-thumbnail img {
 //  width: 135px;
 //  //height: 180px;

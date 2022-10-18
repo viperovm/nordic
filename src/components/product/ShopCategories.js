@@ -1,8 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { setActiveSort } from "../../helpers/product";
+import {useHistory} from "react-router-dom";
 
-const ShopCategories = ({ categories, getSortParams }) => {
+const ShopCategories = ({ categories, getSortParams, active }) => {
+
+  const history = useHistory()
+
   console.log('categories: ', categories)
   return (
     <div className="sidebar-widget">
@@ -13,10 +17,11 @@ const ShopCategories = ({ categories, getSortParams }) => {
             <li>
               <div className="sidebar-widget-list-left">
                 <button
+                  className={!active ? 'active' : ''}
                   onClick={e => {
-                    getSortParams("category", "");
-                    console.log(e.target.value)
-                    setActiveSort(e);
+                    history.push(`/shop`)
+                    // getSortParams("category", "");
+                    // setActiveSort(e);
                   }}
                 >
                   <span className="checkmark" /> Все категории
@@ -26,11 +31,13 @@ const ShopCategories = ({ categories, getSortParams }) => {
             {categories?.map((category, key) => {
               return (
                 <li key={key}>
-                  <div className="sidebar-widget-list-left">
+                  <div className="sidebar-widget-list-left active">
                     <button
+                      className={category.id == active ? 'active' : ''}
                       onClick={e => {
-                        getSortParams("category", category.id);
-                        setActiveSort(e);
+                        // getSortParams("category", category.id);
+                        history.push(`/shop/${category.id}`)
+                        // setActiveSort(e);
                       }}
                     >
                       {" "}

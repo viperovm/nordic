@@ -33,6 +33,19 @@
   border-bottom: 1px solid #ebebeb;
 }
 
+.backwards {
+  margin: 10px 0 0 10px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.backwards i {
+  font-size: 10px;
+  margin-right: 5px;
+}
+
 //.image-thumbnail img {
 //  width: 135px;
 //  //height: 180px;

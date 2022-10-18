@@ -14,7 +14,7 @@ import ShopTag from "../../components/product/ShopTag";
 import {getAllCategories} from "../../redux/actions/goodsActions";
 import {connect} from "react-redux";
 
-const ShopSidebar = ({ products, getSortParams, sideSpaceClass, categories}) => {
+const ShopSidebar = ({ products, getSortParams, sideSpaceClass, categories, active}) => {
   // const uniqueCategories = getIndividualCategories(products);
   // const uniqueColors = getIndividualColors(products);
   // const uniqueSizes = getProductsIndividualSizes(products);
@@ -29,6 +29,7 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass, categories}) => 
 
       {/* filter by categories */}
       {categories && <ShopCategories
+        active={active}
         categories={categories}
         getSortParams={getSortParams}
       />}

@@ -12,7 +12,7 @@ import ShopTopbar from '../../wrappers/product/ShopTopbar';
 import ShopProducts from '../../wrappers/product/ShopProducts';
 import {getAllGoods, getAllCategories} from "../../redux/actions/goodsActions";
 
-const ShopGridStandard = ({location, products, all_goods,
+const ShopGridStandard = ({match, location, products, all_goods,
                               one_goods, getAllGoods, all_categories, getAllCategories}) => {
     const [layout, setLayout] = useState('grid three-column');
     const [sortType, setSortType] = useState('');
@@ -24,7 +24,13 @@ const ShopGridStandard = ({location, products, all_goods,
     const [currentData, setCurrentData] = useState([]);
     const [sortedProducts, setSortedProducts] = useState([]);
 
-    console.log(all_goods)
+    const {search} = location
+    const {category_id} = match?.params
+
+    console.log(location)
+    console.log(category_id)
+    console.log(sortType)
+    console.log(sortValue)
 
     useEffect(() => {
         console.log(11)
@@ -49,6 +55,17 @@ const ShopGridStandard = ({location, products, all_goods,
         setSortType(sortType);
         setSortValue(sortValue);
     }
+
+    useEffect(() => {
+        console.log('location changed')
+        if(category_id) {
+            setSortType('category')
+            setSortValue(Number(category_id))
+        } else {
+            setSortType('')
+            setSortValue('')
+        }
+    }, [category_id])
 
     const getFilterSortParams = (sortType, sortValue) => {
         setFilterSortType(sortType);
@@ -82,7 +99,7 @@ const ShopGridStandard = ({location, products, all_goods,
                         <div className="row">
                             <div className="col-lg-3 order-2 order-lg-1">
                                 {/* shop sidebar */}
-                                <ShopSidebar categories={all_categories} products={all_goods} getSortParams={getSortParams} sideSpaceClass="mr-30"/>
+                                <ShopSidebar categories={all_categories} products={all_goods} getSortParams={getSortParams} active={category_id} sideSpaceClass="mr-30"/>
                             </div>
                             <div className="col-lg-9 order-1 order-lg-2">
                                 {/* shop topbar default */}

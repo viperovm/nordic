@@ -106,7 +106,7 @@ const App = (props) => {
 
                 {/* Shop pages */}
                 <Route
-                  path={process.env.PUBLIC_URL + "/shop"}
+                  path={process.env.PUBLIC_URL + "/shop/:category_id?"}
                   component={ShopGridStandard}
                 />
                 {/*<Route*/}

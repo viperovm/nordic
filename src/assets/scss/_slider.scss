@@ -171,6 +171,14 @@
 
 .swiper-slide-active {
   .slider-animated-1 {
+    @media #{$md-layout} {
+      background-color: rgba(255, 255, 255, 0.7);
+    padding: 60px 0;
+    }
+    @media #{$xs-layout} {
+      background-color: rgba(255, 255, 255, 0.7);
+    padding: 60px 0;
+    }
     h3 {
       -webkit-animation-name: fadeInUp;
               animation-name: fadeInUp;

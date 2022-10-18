@@ -15,6 +15,23 @@ const MobileNavMenu = ({ strings }) => {
           <Link to={process.env.PUBLIC_URL + "/shop"}>
             Магазин
           </Link>
+          <ul className="sub-menu">
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/shop/1"}>
+                Мужские
+              </Link>
+            </li>
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/shop/2"}>
+                Женские
+              </Link>
+            </li>
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/shop/3"}>
+                Детские
+              </Link>
+            </li>
+          </ul>
         </li>
         <li>
           <Link to={process.env.PUBLIC_URL + "/size"}>

@@ -15,7 +15,7 @@ const HeroSliderTen = () => {
       subtitle: "Мужские комбезы",
       text: "Лучшее к зиме!",
       image: men,
-      url: "/shop"
+      url: "/shop/1"
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const HeroSliderTen = () => {
       subtitle: "Женские комбезы",
       text: "Лучшее к зиме!",
       image: women,
-      url: "/shop"
+      url: "/shop/2"
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const HeroSliderTen = () => {
       subtitle: "Детские комбезы",
       text: "Лучшее к зиме!",
       image: children,
-      url: "/shop"
+      url: "/shop/3"
     }
   ]
 

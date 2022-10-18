@@ -9,8 +9,11 @@ import RelatedProductSlider from "../../wrappers/product/RelatedProductSlider";
 import ProductDescriptionTab from "../../wrappers/product/ProductDescriptionTab";
 import ProductImageDescription from "../../wrappers/product/ProductImageDescription";
 import {getOneGoods} from "../../redux/actions/goodsActions";
+import {useHistory} from "react-router-dom";
 
 const Product = ({ location, product, getOneGoods, ...props }) => {
+
+  const history = useHistory()
 
   useEffect(() => {
     getOneGoods(props.match.params.id)
@@ -43,6 +46,7 @@ const Product = ({ location, product, getOneGoods, ...props }) => {
         <Breadcrumb />
 
         {/* product description with image */}
+        <div onClick={history.goBack} className={'backwards'}><i className="fa fa-arrow-left"/>Назад</div>
         <ProductImageDescription
           spaceTopClass="pt-100"
           spaceBottomClass="pb-100"

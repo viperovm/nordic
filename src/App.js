@@ -232,11 +232,6 @@ const App = (props) => {
                 />
 
                 <Route
-                  path={process.env.PUBLIC_URL + "/not-found"}
-                  component={NotFound}
-                />
-
-                <Route
                   path={process.env.PUBLIC_URL + "/success"}
                   component={Success}
                 />

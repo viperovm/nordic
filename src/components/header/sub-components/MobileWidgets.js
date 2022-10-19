@@ -16,7 +16,7 @@ const MobileWidgets = () => {
             </li>
             <li>
               <i className="fa fa-comment-o"></i>{" "}
-              <a href="https://tap.link/@newwavecasual">@newwavecasual</a>
+              <a href="https://tap.link/nordic_way">nordic_way</a>
             </li>
           </ul>
         </div>

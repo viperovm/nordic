@@ -28,7 +28,7 @@ const Temporary = () => {
             <div className={styles.contact}>
               <img src={whatsapp} alt=""/>
               <div>
-                <a href="https://tap.link/@newwavecasual">@newwavecasual</a>
+                <a href="https://tap.link/nordic_way">nordic_way</a>
               </div>
 
             </div>
@@ -53,7 +53,7 @@ const Temporary = () => {
               <div className={styles.contact}>
                 <img src={whatsapp} alt=""/>
                 <div>
-                  <a href="https://tap.link/@newwavecasual">@newwavecasual</a>
+                  <a href="https://tap.link/nordic_way">nordic_way</a>
                 </div>
 
               </div>

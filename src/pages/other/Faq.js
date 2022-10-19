@@ -62,7 +62,7 @@ const Faq = ({ location }) => {
                 <p>Если не дозвонились: <a href="tel:+79295073560">+7 (929) 507 35 60</a></p>
 
                 <h4>Пишите нам:</h4>
-                <p>WhatsApp: <a href="https://tap.link/@newwavecasual">@newwavecasual</a></p>
+                <p>WhatsApp: <a href="https://tap.link/nordic_way">nordic_way</a></p>
                 <p>e-mail: <a href="mailto:sales@nordicway.ru">sales@nordicway.ru</a></p>
 
                 <h4>Наши партнеры:</h4>

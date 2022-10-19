@@ -53,7 +53,7 @@ const Contact = ({ location }) => {
                       </div>
                       <div className="contact-info-dec">
                         <p>
-                          <a href="https://tap.link/@newwavecasual">@newwavecasual</a>
+                          <a href="https://tap.link/nordic_way">nordic_way</a>
                         </p>
                         <p>
                           <a href="mailto:sales@nordicway.ru">sales@nordicway.ru</a>

@@ -76,7 +76,7 @@ const LanguageCurrencyChanger = ({
       {/*  </div>*/}
       {/*</div>*/}
       <div className="same-language-currency">
-        <span>Связаться с нами: <a href="tel:+74991300275">+7 (499) 1300 275</a> | <a href="tel:+79295073560">+7 (929) 507 35 60</a> | <a href="https://tap.link/@newwavecasual">@newwavecasual</a></span>
+        <span>Связаться с нами: <a href="tel:+74991300275">+7 (499) 1300 275</a> | <a href="tel:+79295073560">+7 (929) 507 35 60</a> | <a href="https://tap.link/nordic_way">nordic_way</a></span>
       </div>
     </div>
   );

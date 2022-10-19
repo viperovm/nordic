@@ -169,10 +169,10 @@
       }
       .your-order-middle {
         margin: 29px 0;
-        padding: 19px 0 0;
+        padding: 19px 0 18px;
 
         border-top: 1px solid #dee0e4;
-        //border-bottom: 1px solid #dee0e4;
+        border-bottom: 1px solid #dee0e4;
         ul {
           li {
             display: flex;

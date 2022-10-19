@@ -27,10 +27,6 @@ const ShopGridStandard = ({match, location, products, all_goods,
     const {search} = location
     const {category_id} = match?.params
 
-    console.log(location)
-    console.log(category_id)
-    console.log(sortType)
-    console.log(sortValue)
 
     useEffect(() => {
         console.log(11)
@@ -38,11 +34,11 @@ const ShopGridStandard = ({match, location, products, all_goods,
         getAllCategories()
     }, [])
 
-    useEffect(() => {
-        if(all_categories.length < 1) {
-            getAllCategories()
-        }
-    }, [all_categories])
+    // useEffect(() => {
+    //     if(all_categories.length < 1) {
+    //         getAllCategories()
+    //     }
+    // }, [all_categories])
 
     const pageLimit = 50;
     const {pathname} = location;

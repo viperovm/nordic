@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import React, {Fragment, useEffect, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
 import MetaTags from "react-meta-tags";
-import { connect } from "react-redux";
-import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
-import { getDiscountPrice } from "../../helpers/product";
+import {connect} from "react-redux";
+import {BreadcrumbsItem} from "react-breadcrumbs-dynamic";
+import {getDiscountPrice} from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import {resetStatus, setOrder, setOrderData} from "../../redux/actions/goodsActions";
@@ -21,13 +21,13 @@ const Checkout = ({
                     error,
                     resetStatus,
                   }) => {
-  const { pathname } = location;
+  const {pathname} = location;
   // let cartTotalPrice = 0;
 
   const history = useHistory()
 
   useEffect(() => {
-    if(order_success) {
+    if (order_success) {
       history.push(`/success`)
     }
   })
@@ -35,35 +35,45 @@ const Checkout = ({
   const [cartItemsText, setCartItemsText] = useState('')
   const [cartTotalPrice, setCartTotalPrice] = useState(0)
   const [disabled, setDisabled] = useState(false)
+  const [shipping, setShipping] = useState('1')
+  const [shippingCost, setShippingCost] = useState(500)
+
+  useEffect(() => {
+    if (shipping === '1') {
+      setShippingCost(500)
+    } else {
+      setShippingCost(0)
+    }
+  }, [shipping])
 
   const get_cart_text = () => {
     return cartItems?.map(
       item => {
-        setCartItemsText(cartItemsText => `${cartItemsText ? cartItemsText : ''}\t-${item.name} (${item.selectedProductSize}) x ${item.quantity} - ₽${Number(item.price)*item.quantity}\n`)
-        setCartTotalPrice(cartTotalPrice => cartTotalPrice + Number(item.price)*item.quantity)
+        setCartItemsText(cartItemsText => `${cartItemsText ? cartItemsText : ''}\t-${item.name} (${item.selectedProductSize}) x ${item.quantity} - ₽${Number(item.price) * item.quantity}\n`)
+        setCartTotalPrice(cartTotalPrice => cartTotalPrice + Number(item.price) * item.quantity)
       }
     )
   }
 
   useEffect(() => {
-    if(cartItems) {
+    if (cartItems) {
       get_cart_text()
     }
   }, [cartItems])
 
   useEffect(() => {
-    if(cartItemsText || cartTotalPrice) {
-      setOrderData('orders', `\n${cartItemsText} \n\tИтого: ₽${cartTotalPrice}\n`)
+    if (cartItemsText || cartTotalPrice || shippingCost) {
+      setOrderData('orders', `\n${cartItemsText} \n\tИтого: ₽${cartTotalPrice + shippingCost}\n`)
     }
-  }, [cartItemsText, cartTotalPrice])
+  }, [cartItemsText, cartTotalPrice, shippingCost])
 
-  console.log(cartItems)
-  console.log(order_data)
-  console.log('\n' + cartItemsText + '\n\tИтого: ₽' + cartTotalPrice + '\n')
+  useEffect(() => {
+    if (shipping) {
+      setOrderData('shipping', `${shipping === '1' ? `Доставка` : `Самовывоз`}`)
+    }
+  }, [shipping])
 
   const setCartData = (e) => {
-    console.log(e.target.name)
-    console.log(e.target.value)
     setOrderData(e.target.name, e.target.value)
   }
 
@@ -81,7 +91,7 @@ const Checkout = ({
         Оформление заказа
       </BreadcrumbsItem>
       <LayoutOne headerTop="visible">
-        <Breadcrumb />
+        <Breadcrumb/>
         {error && (
           <>
             <div className="modal-wrapper">
@@ -93,13 +103,16 @@ const Checkout = ({
                   <p>Во время оформления заказа произошла ошибка. Повторите попытку позже.</p>
                 </div>
                 <div className="modal-footer">
-                  <div className="place-order mt-25">
-                    <button
-                      className="btn-hover"
-                      onClick={() => {
-                        resetStatus()
-                      }}
-                    >Разместить заказ</button>
+                  <div className="your-order-area">
+                    <div className="place-order mt-25">
+                      <button
+                        className="btn-hover"
+                        onClick={() => {
+                          resetStatus()
+                        }}
+                      >Закрыть
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -112,6 +125,32 @@ const Checkout = ({
               <div className="row">
                 <div className="col-lg-7">
                   <div className="billing-info-wrap">
+                    <h3>Способ получения товара</h3>
+                    <div className="row">
+                      <div className="col-lg-12">
+                        <div className="billing-select mb-20">
+                          <label>Выберите способ получения*</label>
+                          <select onChange={e => setShipping(e.target.value)}>
+                            <option value="1">Доставка</option>
+                            <option value="2">Самовывоз</option>
+                          </select>
+                        </div>
+                        <div className="billing-select mb-20">
+                          {shipping === '1'
+                            ?
+                            <div>
+                              <p>По москве доставка производится курьером. В регионы - почтовыми компаниями.</p>
+                              <p>Стоимость: {getProperPrice(500)}</p>
+                            </div>
+                            :
+                            <div>
+                              <p>Самовывоз производится по адресу: Москва, Кожевническая, 14<br/>
+                              (необходимо за 12 Часов уведомить по телефону +7 (499) 130-02-75 о своём визите)</p>
+                              <p>Стоимость: {getProperPrice(0)}</p>
+                            </div>}
+                        </div>
+                      </div>
+                    </div>
                     <h3>Данные покупателя</h3>
                     <div className="row">
                       <div className="col-lg-12">
@@ -231,17 +270,17 @@ const Checkout = ({
                             })}
                           </ul>
                         </div>
-                        {/*<div className="your-order-bottom">*/}
-                        {/*  <ul>*/}
-                        {/*    <li className="your-order-shipping">Shipping</li>*/}
-                        {/*    <li>Free shipping</li>*/}
-                        {/*  </ul>*/}
-                        {/*</div>*/}
+                        <div className="your-order-bottom">
+                          <ul>
+                            <li className="your-order-shipping">Доставка</li>
+                            <li>{getProperPrice(shippingCost)}</li>
+                          </ul>
+                        </div>
                         <div className="your-order-total">
                           <ul>
                             <li className="order-total">Итого</li>
                             <li>
-                              {getProperPrice(cartTotalPrice)}
+                              {getProperPrice(cartTotalPrice + shippingCost)}
                             </li>
                           </ul>
                         </div>
@@ -261,7 +300,8 @@ const Checkout = ({
                           setDisabled(true)
                           setOrder(order_data)
                         }}
-                      >Разместить заказ</button>
+                      >Разместить заказ
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -274,7 +314,7 @@ const Checkout = ({
                       <i className="pe-7s-cash"></i>
                     </div>
                     <div className="item-empty-area__text">
-                      Нечего оформлять <br />{" "}
+                      Нечего оформлять <br/>{" "}
                       <Link to={process.env.PUBLIC_URL + "/shop"}>
                         В магазин
                       </Link>

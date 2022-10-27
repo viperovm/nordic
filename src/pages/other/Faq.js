@@ -11,7 +11,7 @@ const Faq = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>NordicWay | Faq</title>
+        <title>NordicWay | ЧаВо</title>
         <meta
           name="description"
           content="Faq of NordicWay."

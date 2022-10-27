@@ -18,7 +18,7 @@ const Success = ({ location, resetStatus }) => {
     <>
       <Fragment>
         <MetaTags>
-          <title>NordicWay | Success</title>
+          <title>NordicWay | Заказ оформлен</title>
           <meta
             name="description"
             content="Success"

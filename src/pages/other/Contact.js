@@ -12,7 +12,7 @@ const Contact = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>NordicWay | Contact</title>
+        <title>NordicWay | Контакты</title>
         <meta
           name="description"
           content="Contact of NordicWay."

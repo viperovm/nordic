@@ -80,7 +80,7 @@ const Checkout = ({
   return (
     <Fragment>
       <MetaTags>
-        <title>NordicWay | Checkout</title>
+        <title>NordicWay | Оформление заказа</title>
         <meta
           name="description"
           content="Checkout page"

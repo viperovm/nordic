@@ -13,7 +13,7 @@ const HomeFashionThree = () => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Nordic Way | Fashion Home</title>
+        <title>Nordic Way | Главная</title>
         <meta
           name="description"
           content="Fashion home of Nordic Way"

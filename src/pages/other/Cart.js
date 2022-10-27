@@ -36,7 +36,7 @@ const Cart = ({
   return (
     <Fragment>
       <MetaTags>
-        <title>NordicWay | Cart</title>
+        <title>NordicWay | Корзина</title>
         <meta
           name="description"
           content="Cart page of NordicWay."

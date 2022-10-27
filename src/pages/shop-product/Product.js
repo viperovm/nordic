@@ -28,7 +28,7 @@ const Product = ({ location, product, getOneGoods, ...props }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>NordicWay | Product Page</title>
+        <title>NordicWay | {product?.name}</title>
         <meta
           name="description"
           content="Product page of NordicWay."

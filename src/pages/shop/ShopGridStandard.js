@@ -79,7 +79,7 @@ const ShopGridStandard = ({match, location, products, all_goods,
     return (
         <Fragment>
             <MetaTags>
-                <title>NordicWay | Shop Page</title>
+                <title>NordicWay | Магазин</title>
                 <meta name="description" content="Shop page of NordicWay." />
             </MetaTags>
 

@@ -11,7 +11,7 @@ const Size = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>NordicWay | Size</title>
+        <title>NordicWay | Размеры</title>
         <meta
           name="description"
           content="Size of NordicWay."

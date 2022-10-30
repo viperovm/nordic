@@ -1,4 +1,6 @@
 import React from "react";
+import wa from '../../../assets/img/wa.svg'
+import tg from '../../../assets/img/tg.svg'
 
 const MobileWidgets = () => {
   return (
@@ -15,8 +17,13 @@ const MobileWidgets = () => {
               <a href="tel:+79295073560">+7 (929) 507 35 60</a>
             </li>
             <li>
-              <i className="fa fa-comment-o"></i>{" "}
-              <a href="https://tap.link/nordic_way">nordic_way</a>
+              <img
+                src={wa} alt="whatsapp" className='messenger-icon'/>{" "}
+              <a href="https://tap.link/@nordic_way">nordic_way</a>
+            </li>
+            <li>
+              <img src={tg} alt="telegram" className='messenger-icon'/>{" "}
+              <a href="https://t.me/nordicway_kombezy">nordicway_kombezy</a>
             </li>
           </ul>
         </div>

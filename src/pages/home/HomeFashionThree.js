@@ -16,7 +16,7 @@ const HomeFashionThree = () => {
         <title>Nordic Way | Главная</title>
         <meta
           name="description"
-          content="Fashion home of Nordic Way"
+          content="Комбинезоны Nordic Way"
         />
       </MetaTags>
       <LayoutOne

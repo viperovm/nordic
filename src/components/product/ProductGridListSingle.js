@@ -48,7 +48,7 @@ const ProductGridListSingle = ({
             </Link>
             {product.discount || product.new ? (<div className="product-img-badges">
                 {product.discount ? (<span className="pink">-{product.discount}%</span>) : ("")}
-                {product.new ? <span className="purple">Новинка!</span> : ""}
+                {product.new ? <span className="purple">New</span> : ""}
               </div>) : ("")}
 
             <div className="product-action">

@@ -72,10 +72,11 @@ const Cart = ({
                         </thead>
                         <tbody>
                           {cartItems.map((cartItem, key) => {
-                            const discountedPrice = getDiscountPrice(
-                              cartItem.price,
-                              cartItem.discount
-                            );
+                            const discountedPrice = cartItem.new_price
+                            // const discountedPrice = getDiscountPrice(
+                            //   cartItem.price,
+                            //   cartItem.discount
+                            // );
                             const finalProductPrice = (
                               cartItem.price * currency.currencyRate
                             );
@@ -83,7 +84,7 @@ const Cart = ({
                               discountedPrice * currency.currencyRate
                             );
 
-                            discountedPrice != null
+                            discountedPrice > 0
                               ? (cartTotalPrice +=
                                   finalDiscountedPrice * cartItem.quantity)
                               : (cartTotalPrice +=
@@ -127,7 +128,7 @@ const Cart = ({
                                 </td>
 
                                 <td className="product-price-cart">
-                                  {discountedPrice !== null ? (
+                                  {discountedPrice > 0 ? (
                                     <Fragment>
                                       <span className="amount old">
                                         {getProperPrice(finalProductPrice)}
@@ -184,7 +185,7 @@ const Cart = ({
                                   </div>
                                 </td>
                                 <td className="product-subtotal">
-                                  {discountedPrice !== null
+                                  {discountedPrice > 0
                                     ? getProperPrice(finalDiscountedPrice * cartItem.quantity)
                                     : getProperPrice(finalProductPrice * cartItem.quantity)
                                   }

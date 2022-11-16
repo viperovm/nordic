@@ -49,8 +49,8 @@ const Checkout = ({
   const get_cart_text = () => {
     return cartItems?.map(
       item => {
-        setCartItemsText(cartItemsText => `${cartItemsText ? cartItemsText : ''}\t-${item.name} (${item.selectedProductSize}) x ${item.quantity} - ₽${Number(item.price) * item.quantity}\n`)
-        setCartTotalPrice(cartTotalPrice => cartTotalPrice + Number(item.price) * item.quantity)
+        setCartItemsText(cartItemsText => `${cartItemsText ? cartItemsText : ''}\t-${item.name} (${item.selectedProductSize}) x ${item.quantity} - ₽${Number(item.new_price ? item.new_price : item.price) * item.quantity}\n`)
+        setCartTotalPrice(cartTotalPrice => cartTotalPrice + Number(item.new_price ? item.new_price : item.price) * item.quantity)
       }
     )
   }
@@ -263,7 +263,7 @@ const Checkout = ({
                                     {`${cartItem.name} (${cartItem.selectedProductSize}) X ${cartItem.quantity}`}
                                   </span>{" "}
                                   <span className="order-price">
-                                    {getProperPrice(cartItem.price * cartItem.quantity)}
+                                    {getProperPrice(cartItem.new_price ? cartItem.new_price : cartItem.price * cartItem.quantity)}
                                   </span>
                                 </li>
                               );

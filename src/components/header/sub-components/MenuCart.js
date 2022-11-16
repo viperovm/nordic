@@ -17,10 +17,11 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
         <Fragment>
           <ul>
             {cartData.map((single, key) => {
-              const discountedPrice = getDiscountPrice(
-                single.price,
-                single.discount
-              );
+              const discountedPrice = single.new_price;
+              // const discountedPrice = getDiscountPrice(
+              //   single.price,
+              //   single.discount
+              // );
               const finalProductPrice = (
                 single.price * currency.currencyRate
               );
@@ -28,7 +29,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                 discountedPrice * currency.currencyRate
               );
 
-              discountedPrice != null
+              discountedPrice > 0
                 ? (cartTotalPrice += finalDiscountedPrice * single.quantity)
                 : (cartTotalPrice += finalProductPrice * single.quantity);
 
@@ -54,7 +55,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                     </h4>
                     <h6>Кол-во: {single.quantity}</h6>
                     <span>
-                      {discountedPrice !== null
+                      {finalDiscountedPrice > 0
                         ? getProperPrice(finalDiscountedPrice)
                         : getProperPrice(finalProductPrice)}
                     </span>

@@ -42,7 +42,15 @@ const ProductDescriptionInfo = ({
     <div className="product-details-content ml-70">
       <h2>{product?.name}</h2>
       <div className="product-details-price">
-        <span>{getProperPrice(product?.price)} </span>
+        {product?.new_price > 0 ? (
+          <Fragment>
+            <span>{getProperPrice(product?.new_price)} </span>{" "}
+            <span className="old">{getProperPrice(product?.price)} </span>
+          </Fragment>
+        ) : (
+          <span>{getProperPrice(product?.price)} </span>
+        )}
+
       </div>
 
       <div className="pro-details-size-color">

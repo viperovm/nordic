@@ -48,7 +48,7 @@ const ProductGridListSingle = ({
             </Link>
             {product.discount || product.new ? (<div className="product-img-badges">
                 {product.discount ? (<span className="pink">-{product.discount}%</span>) : ("")}
-                {product.new ? <span className="purple">New</span> : ""}
+                {product.new ? <span className="purple">Новинка!</span> : ""}
               </div>) : ("")}
 
             <div className="product-action">
@@ -94,9 +94,9 @@ const ProductGridListSingle = ({
                 <Rating ratingValue={product.rating}/>
               </div>) : ("")}
             <div className="product-price">
-              <span>{getProperPrice(product?.price)}</span>
+              {/*<span>{getProperPrice(product?.price)}</span>*/}
 
-              {product?.new_price !== null ? (
+              {product?.new_price > 0 ? (
                 <Fragment>
                   <span>{getProperPrice(product?.new_price)}</span>{" "}
                   <span className="old">{getProperPrice(product?.price)}</span>

@@ -95,6 +95,16 @@ const ProductGridListSingle = ({
               </div>) : ("")}
             <div className="product-price">
               <span>{getProperPrice(product?.price)}</span>
+
+              {product?.new_price !== null ? (
+                <Fragment>
+                  <span>{getProperPrice(product?.new_price)}</span>{" "}
+                  <span className="old">{getProperPrice(product?.price)}</span>
+                </Fragment>
+              ) : (
+                <span>{getProperPrice(product?.price)}</span>
+              )}
+
             </div>
           </div>
         </div>

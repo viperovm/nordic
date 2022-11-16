@@ -263,7 +263,7 @@ const Checkout = ({
                                     {`${cartItem.name} (${cartItem.selectedProductSize}) X ${cartItem.quantity}`}
                                   </span>{" "}
                                   <span className="order-price">
-                                    {getProperPrice(cartItem.new_price ? cartItem.new_price : cartItem.price * cartItem.quantity)}
+                                    {getProperPrice((cartItem.new_price ? cartItem.new_price : cartItem.price) * cartItem.quantity)}
                                   </span>
                                 </li>
                               );

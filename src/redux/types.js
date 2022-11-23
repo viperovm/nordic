@@ -13,3 +13,4 @@ export const SET_ORDER_DATA = 'SET_ORDER_DATA';
 export const SET_ORDER_SUCCESS = 'SET_ORDER_SUCCESS';
 export const SET_ORDER_FAIL = 'SET_ORDER_FAIL';
 export const RESET_STATUS = 'RESET_STATUS';
+export const CLOSE_BANNER = 'CLOSE_BANNER';

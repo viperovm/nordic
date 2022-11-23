@@ -122,3 +122,10 @@ export const resetStatus = () => dispatch => {
     type: t.RESET_STATUS,
   })
 }
+
+export const closeBanner = () => dispatch => {
+
+  dispatch({
+    type: t.CLOSE_BANNER,
+  })
+}

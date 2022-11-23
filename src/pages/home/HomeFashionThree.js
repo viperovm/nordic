@@ -20,7 +20,7 @@ const HomeFashionThree = () => {
         />
       </MetaTags>
       <LayoutOne
-        headerContainerClass="container-fluid"
+        // headerContainerClass="container-fluid"
         headerPaddingClass="header-padding-2"
         headerTop="visible"
       >

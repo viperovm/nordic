@@ -1,19 +1,24 @@
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import Logo from "../../components/header/Logo";
 import NavMenu from "../../components/header/NavMenu";
 import IconGroup from "../../components/header/IconGroup";
 import MobileMenu from "../../components/header/MobileMenu";
 import HeaderTop from "../../components/header/HeaderTop";
+import Banner from "../../components/header/Banner";
+import {closeBanner} from "../../redux/actions/goodsActions";
+import {connect} from "react-redux";
 
 const HeaderOne = ({
-  layout,
-  top,
-  borderStyle,
-  headerPaddingClass,
-  headerPositionClass,
-  headerBgClass
-}) => {
+                     layout,
+                     top,
+                     borderStyle,
+                     headerPaddingClass,
+                     headerPositionClass,
+                     headerBgClass,
+                     banner_state,
+                     closeBanner,
+                   }) => {
   const [scroll, setScroll] = useState(0);
   const [headerTop, setHeaderTop] = useState(0);
 
@@ -30,12 +35,28 @@ const HeaderOne = ({
     setScroll(window.scrollY);
   };
 
+  const [active, setActive] = useState(true)
+
+  const handleCloseAction = () => {
+    setActive(false)
+  }
+
   return (
     <header
       className={`header-area clearfix ${headerBgClass ? headerBgClass : ""} ${
         headerPositionClass ? headerPositionClass : ""
       }`}
     >
+
+      <div
+        className={`d-${active ? 'block' : 'none'} header-top-banner ${
+          borderStyle === "fluid-border" ? "border-none" : ""
+        }`}
+      >
+        <Banner borderStyle={borderStyle} action={handleCloseAction}/>
+      </div>
+
+
       <div
         className={`${headerPaddingClass ? headerPaddingClass : ""} ${
           top === "visible" ? "d-none d-lg-block" : "d-none"
@@ -45,7 +66,7 @@ const HeaderOne = ({
       >
         <div className={layout === "container-fluid" ? layout : "container"}>
           {/* header top */}
-          <HeaderTop borderStyle={borderStyle} />
+          <HeaderTop borderStyle={borderStyle}/>
         </div>
       </div>
 
@@ -68,27 +89,30 @@ const HeaderOne = ({
             </div>
             <div className="col-xl-8 col-lg-8 d-none d-lg-block">
               {/* Nav menu */}
-              <NavMenu />
+              <NavMenu/>
             </div>
             <div className="col-xl-2 col-lg-2 col-md-6 col-8">
               {/* Icon group */}
-              <IconGroup />
+              <IconGroup/>
             </div>
           </div>
         </div>
         {/* mobile menu */}
-        <MobileMenu />
+        <MobileMenu/>
       </div>
     </header>
   );
 };
 
-HeaderOne.propTypes = {
-  borderStyle: PropTypes.string,
-  headerPaddingClass: PropTypes.string,
-  headerPositionClass: PropTypes.string,
-  layout: PropTypes.string,
-  top: PropTypes.string
+const mapStateToProps = state => ({
+  banner_state: state.goods.banner,
+})
+
+const mapDispatchToProps = {
+  closeBanner,
 };
 
-export default HeaderOne;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HeaderOne)

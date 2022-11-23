@@ -6,6 +6,7 @@ const initialState = {
   one_goods: {},
   order_data: {},
   order_success: false,
+  banner: true,
   error: false,
 };
 
@@ -37,6 +38,12 @@ export default function(state= initialState, action) {
         ...state,
         order_success: false,
         error: false,
+      }
+
+    case t.CLOSE_BANNER:
+      return {
+        ...state,
+        banner: false,
       }
 
     case t.DELETE_ALL_FROM_CART:

@@ -35,7 +35,7 @@ const HeaderOne = ({
     setScroll(window.scrollY);
   };
 
-  const [active, setActive] = useState(true)
+  const [active, setActive] = useState(false)
 
   const handleCloseAction = () => {
     setActive(false)

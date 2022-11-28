@@ -130,6 +130,9 @@ export const getBanner = () => async dispatch => {
   try {
     const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/banner/`, config);
 
+    console.log(res)
+    console.log(res.data)
+
     dispatch({
       type: t.GET_BANNER_SUCCESS,
       payload: res.data

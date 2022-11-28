@@ -6,8 +6,8 @@ import IconGroup from "../../components/header/IconGroup";
 import MobileMenu from "../../components/header/MobileMenu";
 import HeaderTop from "../../components/header/HeaderTop";
 import Banner from "../../components/header/Banner";
-import {closeBanner} from "../../redux/actions/goodsActions";
 import {connect} from "react-redux";
+import {getBanner} from "../../redux/actions/goodsActions";
 
 const HeaderOne = ({
                      layout,
@@ -16,13 +16,14 @@ const HeaderOne = ({
                      headerPaddingClass,
                      headerPositionClass,
                      headerBgClass,
-                     banner_state,
-                     closeBanner,
+                     getBanner,
+                     banner,
                    }) => {
   const [scroll, setScroll] = useState(0);
   const [headerTop, setHeaderTop] = useState(0);
 
   useEffect(() => {
+    getBanner()
     const header = document.querySelector(".sticky-bar");
     setHeaderTop(header.offsetTop);
     window.addEventListener("scroll", handleScroll);
@@ -48,13 +49,13 @@ const HeaderOne = ({
       }`}
     >
 
-      <div
+      {banner?.is_active && <div
         className={`d-${active ? 'block' : 'none'} header-top-banner ${
           borderStyle === "fluid-border" ? "border-none" : ""
         }`}
       >
-        <Banner borderStyle={borderStyle} action={handleCloseAction}/>
-      </div>
+        <Banner borderStyle={borderStyle} action={handleCloseAction} text_1={banner?.text_1} text_2={banner?.text_2}/>
+      </div>}
 
 
       <div
@@ -105,11 +106,11 @@ const HeaderOne = ({
 };
 
 const mapStateToProps = state => ({
-  banner_state: state.goods.banner,
+  banner: state.goods.banner,
 })
 
 const mapDispatchToProps = {
-  closeBanner,
+  getBanner,
 };
 
 export default connect(

@@ -1,12 +1,12 @@
 import * as t from '../types'
 
 const initialState = {
+  banner: null,
   all_goods: [],
   all_categories: [],
   one_goods: {},
   order_data: {},
   order_success: false,
-  banner: true,
   error: false,
 };
 
@@ -18,6 +18,12 @@ export default function(state= initialState, action) {
       return {
         ...state,
         order_data: {...state.order_data, [payload.key]: payload.data}
+      }
+
+    case t.GET_BANNER_SUCCESS:
+      return {
+        ...state,
+        banner: payload,
       }
 
     case t.SET_ORDER_SUCCESS:

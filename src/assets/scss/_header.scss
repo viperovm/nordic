@@ -1086,33 +1086,48 @@
   .header-top-banner-container {
     height: 100%;
     margin: 0 auto;
-    max-width: 1180px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0;
+    max-width: 1200px;
+    padding-left: 15px;
     @media #{$xs-layout} {
-      padding: 0 20px;
+      max-width: 540px;
+      padding: 0 15px;
+    }
+    @media #{$md-layout} {
+      max-width: 720px;
+      padding: 0 15px;
+    }
+    @media #{$lg-layout} {
+      max-width: 960px;
+      padding: 0 15px;
+    }
+    @media #{$xl-layout} {
+      max-width: 1200px;
+      padding: 0 15px;
     }
     .banner-text {
       display: flex;
       align-items: center;
       font-size: 25px;
-
       div:first-child {
         margin-right: 10px;
         font-weight: 600;
-        @media #{$xs-layout} {
+        @media #{$md-layout} {
           margin-right: 0;
         }
-      }
-
-      @media #{$sm-layout} {
-        flex-direction: row;
       }
       @media #{$xs-layout} {
         flex-direction: column;
         font-size: 14px;
+      }
+      @media #{$md-layout} {
+        flex-direction: column;
+        font-size: 20px;
+      }
+      @media #{$lg-layout} {
+        flex-direction: row;
       }
     }
 

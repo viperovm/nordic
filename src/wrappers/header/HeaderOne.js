@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, {useEffect, useState} from "react";
 import Logo from "../../components/header/Logo";
 import NavMenu from "../../components/header/NavMenu";

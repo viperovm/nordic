@@ -1,13 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { setActiveSort } from "../../helpers/product";
 import {useHistory} from "react-router-dom";
 
-const ShopCategories = ({ categories, getSortParams, active }) => {
+const ShopCategories = ({ categories, active }) => {
 
   const history = useHistory()
 
-  console.log('categories: ', categories)
   return (
     <div className="sidebar-widget">
       <h4 className="pro-sidebar-title">Категории </h4>
@@ -35,9 +33,7 @@ const ShopCategories = ({ categories, getSortParams, active }) => {
                     <button
                       className={category.id == active ? 'active' : ''}
                       onClick={e => {
-                        // getSortParams("category", category.id);
                         history.push(`/shop/${category.id}`)
-                        // setActiveSort(e);
                       }}
                     >
                       {" "}

@@ -7,8 +7,6 @@ import {getProperPrice} from "../../../helpers/price";
 
 const MenuCart = ({ cartData, currency, deleteFromCart }) => {
 
-  console.log(cartData)
-
   let cartTotalPrice = 0;
   const { addToast } = useToasts();
   return (

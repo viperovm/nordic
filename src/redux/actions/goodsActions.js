@@ -130,9 +130,6 @@ export const getBanner = () => async dispatch => {
   try {
     const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/banner/`, config);
 
-    console.log(res)
-    console.log(res.data[0])
-
     dispatch({
       type: t.GET_BANNER_SUCCESS,
       payload: res.data[0]
@@ -140,6 +137,28 @@ export const getBanner = () => async dispatch => {
   } catch (err) {
     dispatch({
       type: t.GET_BANNER_FAIL
+    })
+  }
+}
+
+export const getCommercial = () => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/commercial/`, config);
+
+    dispatch({
+      type: t.GET_COMMERCIAL_SUCCESS,
+      payload: res.data
+    })
+  } catch (err) {
+    dispatch({
+      type: t.GET_COMMERCIAL_FAIL
     })
   }
 }

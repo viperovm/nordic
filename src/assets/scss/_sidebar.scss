@@ -1,6 +1,7 @@
 /*---- 17. Sidebar style  ------*/
 
 .sidebar-style {
+  position: relative;
   @media #{$lg-layout} {
     &.mr-30 {
       margin-right: 0;
@@ -213,6 +214,127 @@
     }
   }
 }
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+@keyframes show-in {
+  0%{
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@keyframes show-out {
+  0%{
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+.sidebar-widget-banner {
+  background-color: #ffffff;
+  width: 240px;
+  height: 396px;
+  margin-top: 30px;
+  border: 1px solid #e6e6e6;
+  padding: 20px;
+  @media #{$lg-layout} {
+    &.fixed {
+      position: fixed;
+      top: 60px;
+    }
+  }
+  @media #{$xl-layout} {
+    &.fixed {
+      position: fixed;
+      top: 60px;
+    }
+  }
+  @media #{$xxl-layout} {
+    &.fixed {
+      position: fixed;
+      top: 60px;
+    }
+  }
+  @media #{$md-layout} {
+    &.fixed {
+      position: relative;
+    }
+  }
+  @media #{$xs-layout} {
+    &.fixed {
+      position: relative;
+    }
+  }
+  @media #{$sm-layout} {
+    &.fixed {
+      position: relative;
+    }
+  }
+  .banner-animation-in {
+    opacity:0; /*Элемент полностью прозрачный (невидимый)*/
+    transition: 2s; /*Скорость перехода состояния элемента*/
+    animation: show-in 2s 1; /* Указываем название анимации, её время и количество повторов*/
+    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+    //animation-delay: 1s; /* Задержка перед началом */
+  }
+  .banner-animation-out {
+    opacity:1; /*Элемент полностью прозрачный (невидимый)*/
+    transition: 1s; /*Скорость перехода состояния элемента*/
+    animation: show-out 1s 1; /* Указываем название анимации, её время и количество повторов*/
+    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+    //animation-delay: 1s; /* Задержка перед началом */
+  }
+  .sidebar-widget-banner-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    background-size: cover;
+    background-position: center;
+  }
+  h3.sidebar-widget-banner-title {
+    font-size: 20px;
+    margin: 20px 0 0 0;
+    text-align: center;
+  }
+  h4.sidebar-widget-banner-subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+  }
+  .sidebar-widget-banner-text {
+    font-size: 12px;
+    font-weight: 300;
+    margin: 10px 0 0 0;
+    line-height: 14px;
+    max-height: 70px;
+    overflow-y: hidden;
+    color: #000000;
+  }
+}
+
+
 
 .pro-sidebar-search {
   .pro-sidebar-search-form {

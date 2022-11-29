@@ -24,12 +24,10 @@ const ShopGridStandard = ({match, location, products, all_goods,
     const [currentData, setCurrentData] = useState([]);
     const [sortedProducts, setSortedProducts] = useState([]);
 
-    const {search} = location
     const {category_id} = match?.params
 
 
     useEffect(() => {
-        console.log(11)
         getAllGoods()
         getAllCategories()
     }, [])
@@ -53,7 +51,6 @@ const ShopGridStandard = ({match, location, products, all_goods,
     }
 
     useEffect(() => {
-        console.log('location changed')
         if(category_id) {
             setSortType('category')
             setSortValue(Number(category_id))

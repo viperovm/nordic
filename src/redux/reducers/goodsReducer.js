@@ -2,6 +2,7 @@ import * as t from '../types'
 
 const initialState = {
   banner: null,
+  commercial: [],
   all_goods: [],
   all_categories: [],
   one_goods: {},
@@ -24,6 +25,24 @@ export default function(state= initialState, action) {
       return {
         ...state,
         banner: payload,
+      }
+
+    case t.GET_BANNER_FAIL:
+      return {
+        ...state,
+        banner: null,
+      }
+
+    case t.GET_COMMERCIAL_SUCCESS:
+      return {
+        ...state,
+        commercial: payload,
+      }
+
+    case t.GET_COMMERCIAL_FAIL:
+      return {
+        ...state,
+        commercial: [],
       }
 
     case t.SET_ORDER_SUCCESS:

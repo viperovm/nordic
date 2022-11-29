@@ -11,16 +11,27 @@ import ShopCategories from "../../components/product/ShopCategories";
 import ShopColor from "../../components/product/ShopColor";
 import ShopSize from "../../components/product/ShopSize";
 import ShopTag from "../../components/product/ShopTag";
-import {getAllCategories} from "../../redux/actions/goodsActions";
+import {getAllCategories, getCommercial} from "../../redux/actions/goodsActions";
 import {connect} from "react-redux";
+import CommercialBanner from "../../components/product/CommercialBanner";
 
-const ShopSidebar = ({ products, getSortParams, sideSpaceClass, categories, active}) => {
+const ShopSidebar = ({
+                       products,
+                       getSortParams,
+                       sideSpaceClass,
+                       categories,
+                       active,
+                       commercial,
+                       getCommercial,}) => {
+
+  useEffect(() => {
+    getCommercial()
+  }, [])
+
   // const uniqueCategories = getIndividualCategories(products);
   // const uniqueColors = getIndividualColors(products);
   // const uniqueSizes = getProductsIndividualSizes(products);
   // const uniqueTags = getIndividualTags(products);
-
-  console.log(categories)
 
   return (
     <div className={`sidebar-style ${sideSpaceClass ? sideSpaceClass : ""}`}>
@@ -32,6 +43,9 @@ const ShopSidebar = ({ products, getSortParams, sideSpaceClass, categories, acti
         active={active}
         categories={categories}
         getSortParams={getSortParams}
+      />}
+      {commercial?.length>0 && <CommercialBanner
+        commercial={commercial}
       />}
 
       {/* filter by color */}
@@ -53,4 +67,14 @@ ShopSidebar.propTypes = {
   sideSpaceClass: PropTypes.string
 };
 
-export default ShopSidebar;
+const mapStateToProps = state => ({
+  commercial: state.goods.commercial,
+})
+const mapDispatchToProps = {
+  getCommercial,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ShopSidebar)

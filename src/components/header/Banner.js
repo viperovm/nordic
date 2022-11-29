@@ -1,10 +1,4 @@
-import PropTypes from "prop-types";
-import React, {useState} from "react";
-import {multilanguage} from "redux-multilanguage";
-import {connect} from "react-redux";
-import {setCurrency} from "../../redux/actions/currencyActions";
-import LanguageCurrencyChanger from "./sub-components/LanguageCurrencyChanger";
-import {closeBanner} from "../../redux/actions/goodsActions";
+import React from "react";
 
 const Banner = ({
                   action,

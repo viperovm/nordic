@@ -1,12 +1,24 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {connect} from 'react-redux';
 import MetaTags from "react-meta-tags";
 import {BreadcrumbsItem} from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import {getExtraElements, getFaqElements} from "../../redux/actions/goodsActions";
 
-const Faq = ({ location }) => {
+const Faq = ({
+               location,
+               faq,
+               extra,
+               getFaqElements,
+               getExtraElements,
+             }) => {
   const { pathname } = location;
+
+  useEffect(() => {
+    getFaqElements()
+    getExtraElements()
+  }, [])
   
   return (
     <Fragment>
@@ -78,8 +90,14 @@ const Faq = ({ location }) => {
   );
 };
 
-const mapStateToProps = state => ({})
-const mapDispatchToProps = {}
+const mapStateToProps = state => ({
+  faq: state.goods.faq,
+  extra: state.goods.extra,
+})
+const mapDispatchToProps = {
+  getFaqElements,
+  getExtraElements,
+}
 
 export default connect(
   mapStateToProps,

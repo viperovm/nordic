@@ -163,3 +163,47 @@ export const getCommercial = () => async dispatch => {
   }
 }
 
+export const getFaqElements = () => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/faq/`, config);
+
+    dispatch({
+      type: t.GET_FAQ_SUCCESS,
+      payload: res.data
+    })
+  } catch (err) {
+    dispatch({
+      type: t.GET_FAQ_FAIL
+    })
+  }
+}
+
+export const getExtraElements = () => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/extra/`, config);
+
+    dispatch({
+      type: t.GET_EXTRA_SUCCESS,
+      payload: res.data
+    })
+  } catch (err) {
+    dispatch({
+      type: t.GET_EXTRA_FAIL
+    })
+  }
+}
+

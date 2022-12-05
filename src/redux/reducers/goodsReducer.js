@@ -3,6 +3,8 @@ import * as t from '../types'
 const initialState = {
   banner: null,
   commercial: [],
+  faq: [],
+  extra: [],
   all_goods: [],
   all_categories: [],
   one_goods: {},
@@ -43,6 +45,30 @@ export default function(state= initialState, action) {
       return {
         ...state,
         commercial: [],
+      }
+
+    case t.GET_FAQ_SUCCESS:
+      return {
+        ...state,
+        faq: payload,
+      }
+
+    case t.GET_FAQ_FAIL:
+      return {
+        ...state,
+        faq: [],
+      }
+
+    case t.GET_EXTRA_SUCCESS:
+      return {
+        ...state,
+        extra: payload,
+      }
+
+    case t.GET_EXTRA_FAIL:
+      return {
+        ...state,
+        extra: [],
       }
 
     case t.SET_ORDER_SUCCESS:

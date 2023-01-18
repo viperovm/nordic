@@ -7,6 +7,7 @@ const initialState = {
   extra: [],
   all_goods: [],
   all_categories: [],
+  all_sizes: [],
   one_goods: {},
   order_data: {},
   order_success: false,
@@ -133,6 +134,17 @@ export default function(state= initialState, action) {
       return {
         ...state,
         all_categories: []
+      }
+
+    case t.GET_ALL_SIZES_SUCCESS:
+      return {
+        ...state,
+        all_sizes: payload
+      }
+    case t.GET_ALL_SIZES_FAIL:
+      return {
+        ...state,
+        all_sizes: []
       }
     default:
       return state

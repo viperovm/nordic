@@ -60,29 +60,39 @@ export const getProductCartQuantity = (cartItems, product, color, size) => {
 //get products based on category
 export const getSortedProducts = (products, sortType, sortValue) => {
   if (products && sortType && sortValue) {
+    if (sortType === "Все") {
+      return products
+    }
     if (sortType === "category") {
       return products.filter(
         product => product.category.id === sortValue
       );
     }
     if (sortType === "tag") {
-      return products.filter(
-        product => product.tag.filter(single => single === sortValue)[0]
-      );
+      if(sortValue === 'Распродажа') {
+        return products.filter(
+          product => product.discount > 0
+        );
+      } else if(sortValue === 'Новинка') {
+        return products.filter(
+          product => product.new
+        );
+      }
+
     }
-    if (sortType === "color") {
-      return products.filter(
-        product =>
-          product.variation &&
-          product.variation.filter(single => single.color === sortValue)[0]
-      );
-    }
+    // if (sortType === "color") {
+    //   return products.filter(
+    //     product =>
+    //       product.variation &&
+    //       product.variation.filter(single => single.color === sortValue)[0]
+    //   );
+    // }
     if (sortType === "size") {
       return products.filter(
         product =>
-          product.variation &&
-          product.variation.filter(
-            single => single.size.filter(single => single.name === sortValue)[0]
+          product.size &&
+          product.size.filter(
+            single => single.id === sortValue
           )[0]
       );
     }

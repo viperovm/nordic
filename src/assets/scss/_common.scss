@@ -1597,6 +1597,14 @@ textarea:focus {
   z-index: 9811 !important;
   right: 20px;
   bottom: 100px;
+  box-shadow: 0 0 3px rgb(0 0 0 / 10%), 0 0 10px rgb(0 0 0 / 30%);
+
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  -webkit-transition-property: -webkit-box-shadow;
+  transition-property: -webkit-box-shadow;
+  transition-property: box-shadow;
+  transition-property: box-shadow, -webkit-box-shadow;
 
   visibility: hidden;
   overflow: hidden;
@@ -1618,8 +1626,8 @@ textarea:focus {
     opacity: 1;
   }
   @media #{$xs-layout} {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
   }
   & i {
     font-size: 22px;

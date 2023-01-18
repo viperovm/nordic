@@ -1,10 +1,24 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
 
-const ShopCategories = ({ categories, active }) => {
+const ShopCategories = ({
+                          categories,
+                          action,
+                          params,
+                        }) => {
 
-  const history = useHistory()
+  const [active, setActive] = useState('')
+
+  useEffect(() => {
+    setActive(
+      params?.filter(
+        param => param?.name === 'category'
+      )[0].value
+    )
+  }, [params])
+
+  console.log(active)
 
   return (
     <div className="sidebar-widget">
@@ -17,7 +31,8 @@ const ShopCategories = ({ categories, active }) => {
                 <button
                   className={!active ? 'active' : ''}
                   onClick={e => {
-                    history.push(`/shop`)
+                    action(`category`, '')
+                    // history.push(`/shop`)
                     // getSortParams("category", "");
                     // setActiveSort(e);
                   }}
@@ -33,7 +48,9 @@ const ShopCategories = ({ categories, active }) => {
                     <button
                       className={category.id == active ? 'active' : ''}
                       onClick={e => {
-                        history.push(`/shop/${category.id}`)
+                        action(`category`, category.id)
+                        // history.push(`/shop?category=${category.id}`)
+                        // history.push(`/shop/${category.id}`)
                       }}
                     >
                       {" "}

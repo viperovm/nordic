@@ -77,6 +77,28 @@ export const getAllCategories = () => async dispatch => {
   }
 }
 
+export const getAllSizes = () => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/sizes/`, config);
+
+    dispatch({
+      type: t.GET_ALL_SIZES_SUCCESS,
+      payload: res.data
+    })
+  } catch (err) {
+    dispatch({
+      type: t.GET_ALL_SIZES_FAIL
+    })
+  }
+}
+
 export const setOrder = (data) => async dispatch => {
   const config = {
     headers: {

@@ -7,8 +7,6 @@ const ProductImageGalleryLeftThumb = ({ product, thumbPosition }) => {
   const [gallerySwiper, getGallerySwiper] = useState(null);
   const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
 
-  console.log(product)
-
   // effect for swiper slider synchronize
   useEffect(() => {
     if (

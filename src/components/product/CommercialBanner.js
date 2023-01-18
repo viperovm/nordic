@@ -49,7 +49,6 @@ const CommercialBanner = ({ getCommercial, commercial }) => {
     const banner = document.querySelector(".sidebar-widget-banner").getBoundingClientRect();
     setBannerTop(banner.top - 160);
     setBannerLeft(banner.left);
-    // console.log(banner.offsetLeft);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);

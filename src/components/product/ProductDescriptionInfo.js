@@ -27,8 +27,6 @@ const ProductDescriptionInfo = ({
     product?.size?.length ? product?.size[0].size : ""
   );
 
-  console.log(typeof product?.price)
-
   const [quantityCount, setQuantityCount] = useState(1);
 
   const productCartQty = getProductCartQuantity(

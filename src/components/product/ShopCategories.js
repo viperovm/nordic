@@ -18,8 +18,6 @@ const ShopCategories = ({
     )
   }, [params])
 
-  console.log(active)
-
   return (
     <div className="sidebar-widget">
       <h4 className="pro-sidebar-title">Категории </h4>

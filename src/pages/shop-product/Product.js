@@ -20,9 +20,6 @@ const Product = ({ location, product, getOneGoods, ...props }) => {
     return () => getOneGoods()
   }, [])
 
-  console.log(props.match.params.id)
-  console.log(product)
-
   const { pathname } = location;
 
   return (

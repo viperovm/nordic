@@ -31,8 +31,6 @@ const Cart = ({
   const { pathname } = location;
   let cartTotalPrice = 0;
 
-  console.log(parseFloat(cartTotalPrice.toFixed(2)).toLocaleString('ru-RU'))
-
   return (
     <Fragment>
       <MetaTags>

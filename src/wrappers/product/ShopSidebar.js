@@ -30,8 +30,6 @@ const ShopSidebar = ({
                        getAllSizes,
                      }) => {
 
-  console.log(active)
-
   useEffect(() => {
     getCommercial()
     getAllCategories()

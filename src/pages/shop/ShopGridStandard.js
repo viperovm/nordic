@@ -120,15 +120,9 @@ const ShopGridStandard = ({match, location, products, all_goods,
         // setFilteredGoods(goods)
     }, [params])
 
-    console.log(filteredGoods)
-
 
     // const {category} = qs.parse(location.search, { ignoreQueryPrefix: true }).category
     // const {category} = match?.params
-
-    console.log(params)
-    console.log(location)
-
 
     useEffect(() => {
         const list = [
@@ -176,9 +170,7 @@ const ShopGridStandard = ({match, location, products, all_goods,
     }, [])
 
     const handleParams = (key, val) => {
-        console.log(params)
         const str = params.map(param => {
-            console.log(param)
             if(param?.name === key) {
                 if(param?.value === val) {
                     return `${key}=`

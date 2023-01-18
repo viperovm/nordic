@@ -32,8 +32,6 @@ const ProductImageDescription = ({
     discountedPrice * currency?.currencyRate
   ).toFixed(2);
 
-  console.log(product)
-
   return (
     <div
       className={`shop-area ${spaceTopClass ? spaceTopClass : ""} ${

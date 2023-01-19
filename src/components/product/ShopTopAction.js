@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, {useState} from "react";
 import { setActiveLayout } from "../../helpers/product";
+import ShopCategories from "./ShopCategories";
+import ShopSize from "./ShopSize";
+import ShopTag from "./ShopTag";
 
 const ShopTopAction = ({
   getLayout,
@@ -9,7 +12,7 @@ const ShopTopAction = ({
   sortedProductCount
 }) => {
   return (
-    <div className="shop-top-bar mb-35">
+    <div className="shop-top-bar mb-0 mb-lg-35">
       <div className="select-shoing-wrap">
         <div className="shop-select">
           <select

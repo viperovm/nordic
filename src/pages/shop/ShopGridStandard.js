@@ -10,12 +10,12 @@ import Breadcrumb from '../../wrappers/breadcrumb/Breadcrumb';
 import ShopSidebar from '../../wrappers/product/ShopSidebar';
 import ShopTopbar from '../../wrappers/product/ShopTopbar';
 import ShopProducts from '../../wrappers/product/ShopProducts';
-import {getAllGoods, getAllCategories} from "../../redux/actions/goodsActions";
+import {getAllGoods, getAllCategories, getCommercial} from "../../redux/actions/goodsActions";
 import qs from "qs";
 import {useHistory} from "react-router-dom";
 
 const ShopGridStandard = ({match, location, products, all_goods,
-                              one_goods, getAllGoods, all_categories, getAllCategories}) => {
+                              one_goods, getAllGoods, all_categories, getCommercial, commercial, getAllCategories}) => {
     const [layout, setLayout] = useState('grid three-column');
     const [sortType, setSortType] = useState('');
     const [sortValue, setSortValue] = useState('');
@@ -39,21 +39,11 @@ const ShopGridStandard = ({match, location, products, all_goods,
     const history = useHistory()
 
     useEffect(() => {
-        // params.map(param => {
-        //     if(param.name === 'category' && param.value) {
-        //         setCategory(param.value)
-        //     } else if(param.name === 'category' && !param.value) {
-        //         setCategory('')
-        //     } else if(param.name === 'size' && param.value) {
-        //         setSize(param.value)
-        //     } else if(param.name === 'size' && !param.value) {
-        //         setSize('')
-        //     } else if(param.name === 'tag' && param.value) {
-        //         setTag(param.value)
-        //     } else if(param.name === 'tag' && !param.value) {
-        //         setTag('')
-        //     }
-        // })
+        getCommercial()
+    })
+
+    useEffect(() => {
+
         let size = params.filter(param => param.name === 'size')[0].value
 
         let goods = all_goods.filter(item => (
@@ -88,41 +78,7 @@ const ShopGridStandard = ({match, location, products, all_goods,
                 return a.price - b.price
             }))
         }
-
-        // let goods = all_goods
-        // params.map(param => {
-        //     if(param.name === 'category' && param.value) {
-        //         goods = goods.filter(product => product.category.id === param.value)
-        //     } else if(param.name === 'category' && !param.value) {
-        //         goods = all_goods
-        //     } else if(param.name === 'size' && param.value) {
-        //         goods = goods.filter(product =>
-        //           product.size &&
-        //           product.size.filter(
-        //             single => single.id === sortValue
-        //           )[0])
-        //     } else if(param.name === 'size' && !param.value) {
-        //         goods = all_goods
-        //     } else if(param.name === 'tag' && param.value) {
-        //         if(param.value === 'Распродажа') {
-        //             goods = goods.filter(
-        //               product => product.discount > 0
-        //             );
-        //         } else if(param.value === 'Новинка') {
-        //             goods = goods.filter(
-        //               product => product.new
-        //             );
-        //         }
-        //     } else if(param.name === 'tag' && !param.value) {
-        //         goods = all_goods
-        //     }
-        // })
-        // setFilteredGoods(goods)
     }, [params])
-
-
-    // const {category} = qs.parse(location.search, { ignoreQueryPrefix: true }).category
-    // const {category} = match?.params
 
     useEffect(() => {
         const list = [
@@ -261,16 +217,32 @@ const ShopGridStandard = ({match, location, products, all_goods,
                 <div className="shop-area pt-95 pb-100">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-3 order-2 order-lg-1">
+                            <div
+                              className="col-lg-3"
+                              // className="col-lg-3 order-2 order-lg-1"
+                            >
                                 {/* shop sidebar */}
-                                <ShopSidebar products={all_goods} getSortParams={getSortParams} active={category} sideSpaceClass="mr-30" action={handleParams} params={params}/>
+                                <ShopSidebar
+                                  products={all_goods}
+                                  getSortParams={getSortParams}
+                                  active={category}
+                                  sideSpaceClass="mr-30"
+                                  action={handleParams}
+                                  params={params}
+                                  commercial={commercial}
+                                />
                             </div>
-                            <div className="col-lg-9 order-1 order-lg-2">
+
+                            <div
+                              className="col-lg-9"
+                              // className="col-lg-9 order-1 order-lg-2"
+                            >
                                 {/* shop topbar default */}
                                 <ShopTopbar getLayout={getLayout} getFilterSortParams={getFilterSortParams} productCount={all_goods.length} sortedProductCount={currentData.length} />
 
                                 {/* shop page content default */}
                                 <ShopProducts
+                                  commercial={commercial}
                                   layout={layout}
                                   products={filteredGoods}
                                   // products={currentData}
@@ -309,7 +281,8 @@ const mapStateToProps = state => (
       products: state.productData.products,
       all_goods: state.goods.all_goods,
       one_goods: state.goods.one_goods,
+      commercial: state.goods.commercial,
   }
 )
 
-export default connect(mapStateToProps, {getAllGoods, getAllCategories,})(ShopGridStandard);
+export default connect(mapStateToProps, {getAllGoods, getAllCategories, getCommercial,})(ShopGridStandard);

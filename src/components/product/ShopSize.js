@@ -18,6 +18,16 @@ const ShopSize = ({
     )
   }, [params])
 
+  const getProperSizeName = (size) => {
+    if (size === '2' || size === '4') {
+      return `${size} года`
+    } else if (size === '6' || size === '8' || size === '10') {
+      return `${size} лет`
+    } else {
+      return size
+    }
+  }
+
   return (
     <div className="sidebar-widget mt-40">
       <h4 className="pro-sidebar-title">Размеры </h4>
@@ -52,7 +62,8 @@ const ShopSize = ({
                     >
                       {" "}
                       <span className="checkmark" />
-                      {size.size}{" "}
+                      {getProperSizeName(size.size)}
+                     {" "}
                     </button>
                   </div>
                 </li>

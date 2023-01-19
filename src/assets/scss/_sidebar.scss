@@ -2,6 +2,7 @@
 
 .sidebar-style {
   position: relative;
+  margin-bottom: 5px;
   @media #{$lg-layout} {
     &.mr-30 {
       margin-right: 0;

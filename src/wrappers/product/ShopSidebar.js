@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {
   getIndividualCategories,
   getIndividualTags,
@@ -22,7 +22,6 @@ const ShopSidebar = ({
                        sideSpaceClass,
                        active,
                        commercial,
-                       getCommercial,
                        action,
                        params,
                        all_categories,
@@ -30,53 +29,59 @@ const ShopSidebar = ({
                        getAllSizes,
                      }) => {
 
+  const [activeFilter, setActiveFilter] = useState(true)
+
   useEffect(() => {
-    getCommercial()
     getAllCategories()
     getAllSizes()
   }, [])
-
-  // const uniqueCategories = getIndividualCategories(products);
-  // const uniqueColors = getIndividualColors(products);
-  // const uniqueSizes = getProductsIndividualSizes(products);
-  // const uniqueTags = getIndividualTags(products);
 
   return (
     <div className={`sidebar-style ${sideSpaceClass ? sideSpaceClass : ""}`}>
       {/* shop search */}
       {/*<ShopSearch />*/}
+      <div className="select-shoing-wrap" style={{marginBottom: activeFilter ? '20px' : '5px', cursor: 'pointer'}}>
+        <p className="pro-sidebar-title" onClick={() => setActiveFilter(activeFilter => !activeFilter)}>
+          Фильтры
+          {activeFilter
+            ?
+            <i className="fa fa-chevron-up" style={{fontSize: '10px', marginLeft: '5px'}}/>
+            :
+            <i className="fa fa-chevron-down" style={{fontSize: '10px', marginLeft: '5px'}}/>
+          }
 
-      {/* filter by categories */}
-      {all_categories && <ShopCategories
-        params={params}
-        active={active}
-        categories={all_categories}
-        getSortParams={getSortParams}
-        action={action}
-      />}
-      {all_sizes && <ShopSize
-        params={params}
-        sizes={all_sizes}
-        getSortParams={getSortParams}
-        action={action}
-      />}
-      <ShopTag
-        params={params}
-        getSortParams={getSortParams}
-        action={action}
-      />
+        </p>
+      </div>
+
+      {
+        activeFilter && (
+          <>
+            {all_categories && <ShopCategories
+              params={params}
+              active={active}
+              categories={all_categories}
+              getSortParams={getSortParams}
+              action={action}
+            />}
+            {all_sizes && <ShopSize
+              params={params}
+              sizes={all_sizes}
+              getSortParams={getSortParams}
+              action={action}
+            />}
+            <ShopTag
+              params={params}
+              getSortParams={getSortParams}
+              action={action}
+            />
+          </>
+        )
+      }
+
       {commercial?.length > 0 && <CommercialBanner
         commercial={commercial}
       />}
 
-      {/* filter by color */}
-      {/*<ShopColor colors={uniqueColors} getSortParams={getSortParams} />*/}
-
-      {/*/!* filter by size *!/*/}
-      {/*<ShopSize sizes={uniqueSizes} getSortParams={getSortParams} />*/}
-
-      {/*/!* filter by tag *!/*/}
-      {/*<ShopTag tags={uniqueTags} getSortParams={getSortParams} />*/}
     </div>
   );
 };
@@ -88,7 +93,6 @@ ShopSidebar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  commercial: state.goods.commercial,
   all_categories: state.goods.all_categories,
   all_sizes: state.goods.all_sizes,
 })

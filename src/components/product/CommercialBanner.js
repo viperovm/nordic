@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {getCommercial} from "../../redux/actions/goodsActions";
 import "react-image-gallery/styles/scss/image-gallery.scss";
 
-const CommercialBanner = ({ getCommercial, commercial }) => {
+const CommercialBanner = ({ getCommercial, commercial, fixed = true }) => {
 
   useEffect(() => {
     getCommercial()
@@ -61,29 +61,56 @@ const CommercialBanner = ({ getCommercial, commercial }) => {
 
   return (
     <>
-      {commercial?.length > 0 && <div
-        className={`sidebar-widget-banner ${
-          scroll > bannerTop ? "fixed" : ""
-        }`}
-        style={{left: bannerLeft}}
-      >
-        {
-          <div className={`banner-animation-${bannerStatus}`}>
-            <a href={activeSlide?.url}>
-              <div className="sidebar-widget-banner-image" style={{backgroundImage: `url(${activeSlide?.image})`}}/>
-            </a>
-            <a href={activeSlide?.url}>
-              <h3 className="sidebar-widget-banner-title">{activeSlide?.title}</h3>
-            </a>
-            <a href={activeSlide?.url}>
-              <h4 className="sidebar-widget-banner-subtitle">{activeSlide?.subtitle}</h4>
-            </a>
-            <a href={activeSlide?.url}>
-              <div className="sidebar-widget-banner-text">{activeSlide?.text}</div>
-            </a>
-          </div>
-        }
-      </div>}
+      {fixed
+        ?
+        <>
+          {commercial?.length > 0 && <div
+            className={`sidebar-widget-banner d-none d-lg-block ${
+              scroll > bannerTop ? "fixed" : ""
+            }`}
+            style={{left: bannerLeft}}
+          >
+            {
+              <div className={`banner-animation-${bannerStatus}`}>
+                <a href={activeSlide?.url}>
+                  <div className="sidebar-widget-banner-image" style={{backgroundImage: `url(${activeSlide?.image})`}}/>
+                </a>
+                <a href={activeSlide?.url}>
+                  <h3 className="sidebar-widget-banner-title">{activeSlide?.title}</h3>
+                </a>
+                <a href={activeSlide?.url}>
+                  <h4 className="sidebar-widget-banner-subtitle">{activeSlide?.subtitle}</h4>
+                </a>
+                <a href={activeSlide?.url}>
+                  <div className="sidebar-widget-banner-text">{activeSlide?.text}</div>
+                </a>
+              </div>
+            }
+          </div>}
+        </>
+        :
+        <>
+          {commercial?.length > 0 && <div
+            className={`sidebar-widget-banner mb-20 ml-15`}
+          >
+            {
+              <div className={`banner-animation-${bannerStatus}`}>
+                <a href={activeSlide?.url}>
+                  <div className="sidebar-widget-banner-image" style={{backgroundImage: `url(${activeSlide?.image})`}}/>
+                </a>
+                <a href={activeSlide?.url}>
+                  <h3 className="sidebar-widget-banner-title">{activeSlide?.title}</h3>
+                </a>
+                <a href={activeSlide?.url}>
+                  <h4 className="sidebar-widget-banner-subtitle">{activeSlide?.subtitle}</h4>
+                </a>
+                <a href={activeSlide?.url}>
+                  <div className="sidebar-widget-banner-text">{activeSlide?.text}</div>
+                </a>
+              </div>
+            }
+          </div>}
+        </>}
     </>
   );
 };

@@ -14,15 +14,15 @@ const HeroSliderTenSingle = ({ data, sliderClass }) => {
         <div className="row">
           <div className="col-xl-6 col-lg-7 col-md-8 col-12 ml-auto">
             <div className="slider-content-3 slider-animated-1 text-center">
-              <h3 className="animated">{data.title}</h3>
-              <h1 className="animated">{data.subtitle}</h1>
-              <p className="animated">{data.text}</p>
+              <h3 className="animated">{data.pre_title}</h3>
+              <h1 className="animated">{data.title}</h1>
+              <p className="animated">{data.subtitle}</p>
               <div className="slider-btn btn-hover">
                 <Link
                   className="animated"
                   to={process.env.PUBLIC_URL + data.url}
                 >
-                  В МАГАЗИН
+                  {data.button_text}
                 </Link>
               </div>
             </div>

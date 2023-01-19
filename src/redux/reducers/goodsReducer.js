@@ -48,6 +48,18 @@ export default function(state= initialState, action) {
         commercial: [],
       }
 
+    case t.GET_SLIDES_SUCCESS:
+      return {
+        ...state,
+        slides: payload,
+      }
+
+    case t.GET_SLIDES_FAIL:
+      return {
+        ...state,
+        slides: [],
+      }
+
     case t.GET_FAQ_SUCCESS:
       return {
         ...state,

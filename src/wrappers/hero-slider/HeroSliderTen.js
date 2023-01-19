@@ -1,12 +1,21 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Swiper from "react-id-swiper";
 // import sliderData from "../../data/hero-sliders/hero-slider-ten.json";
 import HeroSliderTenSingle from "../../components/hero-slider/HeroSliderTenSingle.js";
 import men from "../../assets/img/slider/men.jpg"
 import women from "../../assets/img/slider/women.jpg"
 import children from "../../assets/img/slider/children.jpg"
+import {connect} from "react-redux";
+import {getSlides} from "../../redux/actions/goodsActions";
 
-const HeroSliderTen = () => {
+const HeroSliderTen = ({
+                         getSlides,
+                         slides,
+                       }) => {
+
+  useEffect(() => {
+    getSlides()
+  }, [])
 
   const sliderData = [
     {
@@ -63,8 +72,8 @@ const HeroSliderTen = () => {
     <div className="slider-area">
       <div className="slider-active nav-style-1">
         <Swiper {...params}>
-          {sliderData &&
-            sliderData.map((single, key) => {
+          {slides &&
+            slides.map((single, key) => {
               return (
                 <HeroSliderTenSingle
                   data={single}
@@ -79,4 +88,14 @@ const HeroSliderTen = () => {
   );
 };
 
-export default HeroSliderTen;
+const mapStateToProps = state => ({
+  slides: state.goods.slides,
+})
+const mapDispatchToProps = {
+  getSlides,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HeroSliderTen)

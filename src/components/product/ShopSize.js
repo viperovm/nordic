@@ -1,6 +1,4 @@
-import PropTypes from "prop-types";
 import React, {useEffect, useState} from "react";
-import { setActiveSort } from "../../helpers/product";
 
 const ShopSize = ({
                     sizes,

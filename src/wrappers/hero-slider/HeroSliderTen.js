@@ -47,10 +47,10 @@ const HeroSliderTen = ({
   const params = {
     effect: "fade",
     loop: slides?.length > 1,
-    speed: 3000,
+    speed: 1000,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: true
+      disableOnInteraction: false
     },
     watchSlidesVisibility: true,
     navigation: {

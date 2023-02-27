@@ -8,6 +8,7 @@ import {getDiscountPrice} from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import {resetStatus, setOrder, setOrderData} from "../../redux/actions/goodsActions";
+import {get_promo} from "../../redux/actions/promoActions"
 import Cookies from "js-cookie";
 import {getProperPrice} from "../../helpers/price";
 
@@ -20,6 +21,8 @@ const Checkout = ({
                     order_success,
                     error,
                     resetStatus,
+                    get_promo,
+                    promo,
                   }) => {
   const {pathname} = location;
   // let cartTotalPrice = 0;
@@ -287,6 +290,7 @@ const Checkout = ({
                       </div>
                       <div className="payment-method"></div>
                     </div>
+
                     {!(order_data?.name && order_data?.address1 && order_data?.phone && order_data?.email) && (
                       <div className="place-order mt-25 text-center">
                         <p>Для размещения заказа, заполните все необходимые поля</p>
@@ -302,6 +306,22 @@ const Checkout = ({
                         }}
                       >Разместить заказ
                       </button>
+                    </div>
+                    <div className="discount-code-wrapper mt-25">
+                      <div className="title-wrap">
+                        <h4 className="cart-bottom-title section-bg-gray">
+                          Промо код
+                        </h4>
+                      </div>
+                      <div className="discount-code">
+                        <p>Если у Вас есть промо код, введите его сюда:</p>
+                        <form>
+                          <input type="text" required name="name" />
+                          <button className="cart-btn-2" type="submit">
+                            Использовать
+                          </button>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -342,8 +362,9 @@ const mapStateToProps = state => {
     order_success: state.goods.order_success,
     error: state.goods.error,
     cartItems: state.cartData,
-    currency: state.currencyData
+    currency: state.currencyData,
+    promo: state.promo.promo,
   };
 };
 
-export default connect(mapStateToProps, {setOrderData, setOrder, resetStatus})(Checkout);
+export default connect(mapStateToProps, {setOrderData, setOrder, resetStatus, get_promo})(Checkout);

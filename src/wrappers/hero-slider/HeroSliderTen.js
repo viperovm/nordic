@@ -46,11 +46,11 @@ const HeroSliderTen = ({
 
   const params = {
     effect: "fade",
-    loop: true,
-    speed: 1000,
+    loop: slides?.length > 1,
+    speed: 3000,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false
+      disableOnInteraction: true
     },
     watchSlidesVisibility: true,
     navigation: {
@@ -58,14 +58,14 @@ const HeroSliderTen = ({
       prevEl: ".swiper-button-prev"
     },
     renderPrevButton: () => (
-      <button className="swiper-button-prev ht-swiper-button-nav">
+      slides?.length > 1 ? <button className="swiper-button-prev ht-swiper-button-nav">
         <i className="pe-7s-angle-left" />
-      </button>
+      </button> : ''
     ),
     renderNextButton: () => (
-      <button className="swiper-button-next ht-swiper-button-nav">
+      slides?.length > 1 ? <button className="swiper-button-next ht-swiper-button-nav">
         <i className="pe-7s-angle-right" />
-      </button>
+      </button> : ''
     )
   };
   return (
